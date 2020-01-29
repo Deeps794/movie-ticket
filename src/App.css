@@ -1,0 +1,27 @@
+
+
+/* //  ******** App Component Styles ******** // */
+#root {
+  background-color: white;
+}
+
+/* //  ******** Main Component Styles ******** // */
+
+.col {
+  padding: 14px;
+}
+
+.row-wrapper {
+    margin: 14px;
+}
+
+.carousel-item {
+    max-height: 550px;
+    min-height: 200px;
+}
+
+/* // ******** Card Component Styles ******** // */
+
+.card {
+  padding: 10px;
+}
