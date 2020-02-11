@@ -2,16 +2,16 @@ import './App.css';
 
 import React from 'react';
 
-import Dashboard from './components/DashboardComponent';
+import Footer from './components/FooterComponent';
 import Header from './components/HeaderComponent';
-import Main from './components/MainComponent';
+import Router from './routes/Router';
 
 function App() {
     return (
         <div className="container-fluid">
             <Header/>
-            <Dashboard />
-            <Main/>
+            <Router/>
+            <Footer/>
         </div>
     );
 }

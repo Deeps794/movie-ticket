@@ -1,15 +1,19 @@
+import '../App.css';
+
+import * as SVG from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 
-function Card() {
+function Card(props) {
     return (
         <div className="card">
-            <img className="card-img-top" src="card.jpg" alt="Card cap" />
-            <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <div className="row justify-content-center">
-                <a href="{}" className="btn btn-secondary w-100">Book Now!</a>
-                </div>
+            <img className="card-img-top" src={'images/film-cards/' + props.movieId + '.jpg'} alt="Card cap" />
+            <div className="card-body p-2">
+                <h5 className="card-title my-0 d-inline-block">Movie Title</h5>
+                <span className="px-2 position-relative" style={{ bottom: '2px' }}>
+                    <FontAwesomeIcon icon={SVG.faStar}></FontAwesomeIcon>
+                </span>
+                <p className="card-text" style={{ fontSize: '12px' }}>Starring Actor 1, Actor 2 and Actor 3.</p>
             </div>
         </div>
     );

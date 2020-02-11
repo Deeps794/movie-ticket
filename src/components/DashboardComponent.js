@@ -1,20 +1,13 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
-
-function Dashboard() {
+function Dashboard(props) {
+    const banner = ['BadBoys', 'Darbar', 'GentleMan', 'Psycho'];
     return (
         <div className="position-relative">
-            <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
+            <div id="carouselExampleControls" className="carousel slide carousel-fade" data-ride="carousel">
                 <div className="carousel-inner">
-                    <div className="carousel-item active">
-                        <img className="d-block w-100" src="slide.jpg" alt="First slide" />
-                    </div>
-                    <div className="carousel-item">
-                        <img className="d-block w-100" src="slide.jpg" alt="Second slide" />
-                    </div>
-                    <div className="carousel-item">
-                        <img className="d-block w-100" src="slide.jpg" alt="Third slide" />
-                    </div>
+                    {getBannerCard(banner, props)}
                 </div>
             </div>
             <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -29,5 +22,17 @@ function Dashboard() {
     );
 }
 
-export default Dashboard;
+function getBannerCard(banners, props) {
+    return banners.map((banner, i) =>
+        <div className={i === 0 ? 'carousel-item active' : 'carousel-item'} key={i} onClick={() => routeToMovie(banner, props)}>
+            <img className="d-block w-100" src={'images/banner/' + banner + '.jpg'} alt="slide" />
+        </div>
+    );
+}
+
+function routeToMovie(movieId, props) {
+    props.history.push('/movie/' + movieId);
+}
+
+export default withRouter(Dashboard);
 
