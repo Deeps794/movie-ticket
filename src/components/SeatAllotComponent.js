@@ -3,6 +3,8 @@ import '../App.css';
 import * as SVG from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Component } from 'react';
+import "react-datepicker/dist/react-datepicker.css";
+import SelectDatePicker from './DatePickerComponent';
 
 class SeatAllot extends Component {
     columnLimit = 25;
@@ -13,6 +15,7 @@ class SeatAllot extends Component {
             seats: this.createSeats(),
             occupiedSeats: ['A11', 'A12', 'A22', 'E7', 'F22', 'F17', 'F18', 'H2']
         });
+        this.dateModal.click();
     }
 
     createSeats() {
@@ -29,13 +32,23 @@ class SeatAllot extends Component {
 
     constructor(props) {
         super(props)
+        const date = new Date();
         this.state = {
             seats: [],
             bookedSeats: [],
-            occupiedSeats: []
+            occupiedSeats: [],
+            date: new Date(),
+            displayDate: date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear()
         };
         this.toggleBookedStatus = this.toggleBookedStatus.bind(this);
         this.showBookedTickets = this.showBookedTickets.bind(this);
+        this.onDateChange = this.onDateChange.bind(this);
+    }
+
+    getMaximumDate() {
+        const maximumDate = new Date();
+        maximumDate.setDate(new Date().getDate() + 3);
+        return maximumDate;
     }
 
     toggleBookedStatus(rowIndex, columnIndex) {
@@ -49,6 +62,16 @@ class SeatAllot extends Component {
             seats: existingSeats,
             bookedSeats: bookedSeats
         });
+    }
+
+    onDateChange(date) {
+        if (date instanceof Date) {
+            this.setState({
+                date: date,
+                displayDate: date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear()
+            });
+        }
+        this.dateModal.click();
     }
 
     addSeatToBookedTickets(seat) {
@@ -75,9 +98,15 @@ class SeatAllot extends Component {
                 {this.getSeatLayout()}
                 <div className="row">
                     <button
-                        className={this.state.bookedSeats.length > 0 ? 'btn btn-block btn-primary' : 'btn btn-block btn-primary disabled'}
+                        className={(this.state.bookedSeats.length > 0 ? '' : ' disabled ') + 'btn btn-block btn-info btn-ticket'}
                         onClick={this.showBookedTickets}>Book Tickets</button>
                 </div>
+                <button type="button" className="btn btn-primary d-none" data-toggle="modal" data-target="#staticBackdrop"
+                    ref={button => this.dateModal = button}>
+                    Launch static backdrop modal
+                </button>
+                <SelectDatePicker date={this.state.date} onChange={this.onDateChange} maxDate={this.getMaximumDate()}
+                    selectedDate={this.state.displayDate} minDate={new Date()} />
             </div>
         );
     }
@@ -100,10 +129,9 @@ class SeatAllot extends Component {
     }
 
     showBookedTickets() {
-        alert('Booked Seats: ' + this.state.bookedSeats);
         console.log(this.state.bookedSeats);
+        this.routeToTheatre();
     }
-
 
     getSeatColumns(row, rowIndex) {
         return row.map((seat, columnIndex) => {
@@ -116,6 +144,10 @@ class SeatAllot extends Component {
                 </div>
             );
         });
+    }
+
+    routeToTheatre() {
+        this.props.history.push('/theatre');
     }
 }
 

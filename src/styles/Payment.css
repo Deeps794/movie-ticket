@@ -1,0 +1,66 @@
+.payment-card {
+	width: 50%;
+	margin: auto;
+	min-width: 300px;
+	position: relative;
+	top: 10vh;
+	background: #2f434e;
+    box-shadow: 3px 3px 3px 3px #2f434e;
+}
+
+.custom-radio {
+    width: 100%;
+    margin: 0;
+    height: 60px;
+    border-bottom: 2px solid #2b3b44;
+    color: white;
+    font-weight: bold;
+}
+
+.custom-control-label::before {
+    width: 1.2rem;
+    height: 1.2rem;
+    position: relative;
+    top: 5px;
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.form-control-plaintext {
+    color: white;
+    height: 100%;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 5px;
+}
+
+label {
+    color: #607D8B;
+}
+
+.custom-control-label::after {
+    left: 16px;
+    top: 15px;
+}
+
+.custom-radio .custom-control-input:checked~.custom-control-label::before {
+    background-color: #f9aa33;
+}
+
+.card-icon {
+    width: 40px;
+    height: 40px;
+    right: 0;
+    margin-right: 10px;
+}
+
+.btn-pay {
+    background-color: #f9aa33;
+    border-color: #f9aa33;
+    font-weight: bold;
+}
+
+.btn-pay:hover{
+    background-color: #e59114;
+    border-color: #e59114;
+}

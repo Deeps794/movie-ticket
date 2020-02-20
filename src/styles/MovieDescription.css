@@ -1,0 +1,27 @@
+.card-group-title {
+	font-size: 25px;
+	padding: 5px 15px;
+	margin: 5px 15px;
+	font-weight: bold;
+	color: white;
+	border: 5px solid #232f34;
+	width: 100%;
+	text-align: center;
+}
+
+.play {
+	height: 110px;
+	width: 110px;
+	left: 50%;
+	margin-left: -50px;
+	top: 50%;
+    margin-top: -50px;
+    cursor: pointer;
+}
+
+.description {
+	padding: 10px 20px;
+	font-size: 20px;
+	font-weight: bold;
+	color: white;
+}

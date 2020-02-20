@@ -1,23 +1,88 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import styled from 'styled-components';
 
 import NotFound from '../components/404Component';
 import Home from '../components/HomeComponent';
 import MovieDescription from '../components/MovieDescription';
+import Payment from '../components/PaymentComponent';
 import SeatAllot from '../components/SeatAllotComponent';
+import Theatre from '../components/TheatreComponent';
 
-function Router() {
-    return (
-        <BrowserRouter>
-            <Switch>
-                <Route path="/" component={Home} exact></Route>
-                <Route path="/home" exact component={Home}></Route>
-                <Route path="/seatAllot" exact component={SeatAllot}></Route>
-                 <Route path="/movie/:movieId" exact component={MovieDescription}></Route>
-                <Route path="*" component={NotFound}></Route>
-            </Switch>
-        </BrowserRouter>
-    );
+class Router extends React.PureComponent {
+
+    constructor(props, context) {
+        super(props, context)
+        this.state = {
+            prevDepth: getPathDepth(props.location),
+        }
+    }
+
+    componentDidMount() {
+        this.setState({ prevDepth: getPathDepth(this.props.location) })
+    }
+
+    render() {
+        return (
+            <Wrapper>
+                <TransitionGroup className="transition-group">
+                    <CSSTransition
+                        key={this.props.location.pathname.split('/')[1]}
+                        timeout={500}
+                        classNames={getPathDepth(this.props.location) - this.state.prevDepth > 0 ? 'pageSliderLeft' : 'pageSliderRight'}
+                        mountOnEnter={true}
+                        unmountOnExit={true}>
+                        <Switch>
+                            <Route path="/" component={Home} exact></Route>
+                            <Route path="/home" exact component={Home}></Route>
+                            <Route path="/seatAllot" exact component={SeatAllot}></Route>
+                            <Route path="/movie/:movieId" exact component={MovieDescription}></Route>
+                            <Route path="/theatre" exact component={Theatre}></Route>
+                            <Route path="/payment" exact component={Payment}></Route>
+                            <Route path="*" component={NotFound}></Route>
+                        </Switch>
+                    </CSSTransition>
+                </TransitionGroup>
+            </Wrapper>
+        );
+    }
 }
 
-export default Router;
+const Wrapper = styled.div`
+.pageSliderLeft-enter {
+    transform: translate3d(100%, 0, 0);
+  }
+  .pageSliderLeft-enter.pageSliderLeft-enter-active {
+    transform: translate3d(0, 0, 0);
+    transition: all 600ms;
+  }
+  .pageSliderLeft-exit {
+    transform: translate3d(0, 0, 0);
+  }
+  .pageSliderLeft-exit.pageSliderLeft-exit-active {
+    transform: translate3d(100%, 0, 0);
+    transition: all 600ms;
+  }
+  
+  .pageSliderRight-enter {
+    transform: translate3d(-100%, 0, 0);
+  }
+  .pageSliderRight-enter.pageSliderRight-enter-active {
+    transform: translate3d(0, 0, 0);
+    transition: all 600ms;
+  }
+  .pageSliderRight-exit {
+    transform: translate3d(0, 0, 0);
+  }
+  .pageSliderRight-exit.pageSliderRight-exit-active {
+    transform: translate3d(-100%, 0, 0);
+    transition: all 600ms;
+  }
+        `;
+
+function getPathDepth(location) {
+    return (location || {}).pathname.split('/').length
+}
+
+export default withRouter(Router);

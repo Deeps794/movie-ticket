@@ -1,5 +1,5 @@
 /* //  ******** App Component Styles ******** // */
-#root {
+#root, html {
 	background: #344955;
 }
 
@@ -118,11 +118,12 @@
 	color: #ef5350 !important;
 }
 
-.btn-primary {
-	margin: 20px;
-	background: #1e88e5;
-	font-weight: bold;
-	border-color: #1565c0;
+.btn-ticket {
+	height: 50px;
+    margin: 10px 0;
+    font-size: 20px;
+    text-decoration: dashed;
+    font-weight: bold;
 }
 
 .disabled {
