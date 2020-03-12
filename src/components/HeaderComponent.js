@@ -3,6 +3,7 @@ import './../App.css';
 import * as SVG from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 export class Header extends Component {
 
@@ -17,21 +18,21 @@ export class Header extends Component {
     render() {
         return (
             <nav className="navbar navbar-expand-lg fixed-top">
-                <a className="navbar-brand" href="/home">BookMyMovie</a>
+                <Link className="navbar-brand" to="/home">BookMyMovie </Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
                     aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon" id="toggle"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div className="navbar-nav">
-                        <a className={'nav-item nav-link ' + (this.state.activeState === 'movie' ? 'active' : '')}
-                            href="/home" onClick={() => this.onActiveLink('movie')}>Movies</a>
-                        <a className={'nav-item nav-link ' + (this.state.activeState === 'events' ? 'active' : '')}
-                            href="/events" onClick={() => this.onActiveLink('events')}>Events</a>
-                        <a className={'nav-item nav-link ' + (this.state.activeState === 'shows' ? 'active' : '')}
-                            href="/shows" onClick={() => this.onActiveLink('shows')}>Popular Shows</a>
-                        <a className={'nav-item nav-link ' + (this.state.activeState === 'play' ? 'active' : '')}
-                            href="/play" onClick={() => this.onActiveLink('play')}>Plays</a>
+                        <Link className={'nav-item nav-link ' + (this.state.activeState === 'movie' ? 'active' : '')}
+                            to="/home" onClick={() => this.onActiveLink('movie')}>Movies</Link>
+                        <Link className={'nav-item nav-link ' + (this.state.activeState === 'events' ? 'active' : '')}
+                            to="/events" onClick={() => this.onActiveLink('events')}>Events</Link>
+                        <Link className={'nav-item nav-link ' + (this.state.activeState === 'shows' ? 'active' : '')}
+                            to="/shows" onClick={() => this.onActiveLink('shows')}>Popular Shows</Link>
+                        <Link className={'nav-item nav-link ' + (this.state.activeState === 'play' ? 'active' : '')}
+                            to="/play" onClick={() => this.onActiveLink('play')}>Plays</Link>
                     </div>
                 </div>
                 <div className="position-absolute" style={{ right: '0', padding: '15px' }}>
