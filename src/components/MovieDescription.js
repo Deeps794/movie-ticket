@@ -45,11 +45,7 @@ function MovieDescription() {
                 <div className="card-group-title">Reviews</div>
             </div>
             <div className="row">
-                <Reviews user="user-1" rating="4" key="1" />
-                <Reviews user="user-2" rating="2" key="2" />
-                <Reviews user="user-1" rating="3" key="3" />
-                <Reviews user="user-3" rating="5" key="4" />
-                <Reviews user="user-2" rating="4" key="5" />
+                <Reviews movieId="M2794" />
             </div>
 
             <div className="row">

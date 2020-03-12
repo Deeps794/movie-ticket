@@ -40,11 +40,15 @@ export function Payment() {
                     </div>
                 </div>
                 <div className="card payment-card">
-                    <button type="submit" className="btn btn-primary btn-pay">Proceed to Pay</button>
+                    <button type="button" className="btn btn-primary btn-pay" onClick={() => showAlert()}>Proceed to Pay</button>
                 </div>
             </form>
         </div>
     );
+}
+
+function showAlert() {
+    alert('Tickets Booked Successfully....');
 }
 
 export default Payment;
