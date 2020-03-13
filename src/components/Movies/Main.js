@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-import Card from './CardComponent';
+import MovieCard from './MovieCard';
 
 function Main(props) {
     const popular = ['Darbar', '1917', 'BadBoys', 'BirdsOfPrey', 'Tanhaji', 'VaanamKottatum', 'DoLittle', 'StreetDancer3', 'Hacked', 'GentleMan'];
@@ -35,7 +35,7 @@ function Main(props) {
 function getMovieCards(cardCount, props) {
     const cards = cardCount.map((card, i) =>
         <div className="col-xl-2 col-lg-4 col-md-4 col-sm-12 col-12" key={i} onClick={() => routeToMovie(card, props)}>
-            <Card movieId={card} />
+            <MovieCard movieId={card} />
         </div>
     );
     return cards;

@@ -3,12 +3,12 @@ import { Route, Switch, withRouter } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled from 'styled-components';
 
-import NotFound from '../components/404Component';
-import Home from '../components/HomeComponent';
-import MovieDescription from '../components/MovieDescription';
-import Payment from '../components/PaymentComponent';
-import SeatAllot from '../components/SeatAllotComponent';
-import Theatre from '../components/TheatreComponent';
+import NotFound from '../components/Error/NotFound';
+import Home from '../components/Movies/Home';
+import MovieDescription from '../components/Movie-Description/MovieDescription';
+import Payment from '../components/Payments/Payment';
+import SeatAllot from '../components/Seats/SeatAllot';
+import Theatre from '../components/Shows/Theatre';
 
 class Router extends React.PureComponent {
 
@@ -82,7 +82,7 @@ const Wrapper = styled.div`
         `;
 
 function getPathDepth(location) {
-    return (location || {}).pathname.split('/').length
+    return (location || {}).pathname.split('/').length;
 }
 
 export default withRouter(Router);

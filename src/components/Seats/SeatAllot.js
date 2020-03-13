@@ -1,10 +1,11 @@
-import '../App.css';
+import '../../App.css';
+import 'react-datepicker/dist/react-datepicker.css';
 
 import * as SVG from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Component } from 'react';
-import "react-datepicker/dist/react-datepicker.css";
-import SelectDatePicker from './DatePickerComponent';
+
+import SelectDatePicker from './DatePicker';
 
 class SeatAllot extends Component {
     columnLimit = 25;

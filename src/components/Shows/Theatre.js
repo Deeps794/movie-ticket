@@ -1,5 +1,5 @@
-import '../styles/Reviews.css';
-import '../styles/Theatre.css';
+import '../Movie-Description/Reviews/Reviews.css';
+import './Theatre.css';
 
 import axios from 'axios';
 import React from 'react';
@@ -38,7 +38,7 @@ function routeToPayment(props) {
 }
 
 function getTheatresList() {
-    axios.get('http://localhost:8088/theatres', { headers: {'x-api-key': '3f2c60a7-99c7-410e-8397-c32acaed7c06' } }).then(response => {
+    axios.get('https://localhost:8443/theatres', { headers: {'x-api-key': '3f2c60a7-99c7-410e-8397-c32acaed7c06' } }).then(response => {
         console.log(response);
     });
 }

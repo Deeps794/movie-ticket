@@ -1,12 +1,13 @@
+import './MovieDescription.css';
+
 import React from 'react';
-import Reviews from './ReviewsComponent';
-import '../styles/MovieDescription.css';
 import { Link } from 'react-router-dom';
+
+import Reviews from './Reviews/Reviews';
 
 function MovieDescription() {
 
     return (
-        // const id = this.getParams();
         <div className="container-fluid">
             <div className="row">
                 <div className="position-relative w-100" style={{ opacity: '0.5' }}>
@@ -40,7 +41,6 @@ function MovieDescription() {
                 <div className="col"></div>
                 <div className="col"></div>
             </div> */}
-
             <div className="row">
                 <div className="card-group-title">Reviews</div>
             </div>

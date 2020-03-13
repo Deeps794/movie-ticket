@@ -1,9 +1,10 @@
-import '../styles/Reviews.css';
+import './Reviews.css';
 
 import * as SVG from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
 export class Reviews extends Component {
 
@@ -16,9 +17,8 @@ export class Reviews extends Component {
 
     componentDidMount() {
         this.getReviewList();
-        axios.get('http://localhost:8088/reviews?movieId=' + this.props.movieId, { headers: { 'x-api-key': '3f2c60a7-99c7-410e-8397-c32acaed7c06' } }).then(response => {
+        axios.get('https://localhost:8443/reviews?movieId=' + this.props.movieId, { headers: { 'x-api-key': '3f2c60a7-99c7-410e-8397-c32acaed7c06' } }).then(response => {
             this.setState({ reviews: response.data });
-            console.log(this.state.reviews);
         });
     }
 
@@ -64,4 +64,4 @@ export class Reviews extends Component {
 
 
 
-export default Reviews;
+export default withRouter(Reviews);

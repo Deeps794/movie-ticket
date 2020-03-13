@@ -1,9 +1,9 @@
-import './../App.css';
+import '../../App.css';
 
 import * as SVG from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 export class Header extends Component {
 
@@ -13,6 +13,24 @@ export class Header extends Component {
             activeState: 'movie'
         };
         this.onActiveLink = this.onActiveLink.bind(this);
+    }
+
+    componentDidMount() {
+        switch (this.props.location.pathname != null) {
+            case this.props.location.pathname.includes('movie'):
+                this.onActiveLink('movie');
+                break;
+            case this.props.location.pathname.includes('events'):
+                this.onActiveLink('events');
+                break;
+            case this.props.location.pathname.includes('shows'):
+                this.onActiveLink('shows');
+                break;
+            case this.props.location.pathname.includes('play'):
+                this.onActiveLink('play');
+                break;
+            default:
+        }
     }
 
     render() {
@@ -49,4 +67,4 @@ export class Header extends Component {
     }
 }
 
-export default Header;
+export default withRouter(Header);

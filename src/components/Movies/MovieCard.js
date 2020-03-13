@@ -1,10 +1,10 @@
-import '../App.css';
+import '../../App.css';
 
 import * as SVG from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 
-function Card(props) {
+function MovieCard(props) {
     return (
         <div className="card">
             <img className="card-img-top" src={'images/film-cards/' + props.movieId + '.jpg'} alt="Card cap" />
@@ -19,4 +19,4 @@ function Card(props) {
     );
 }
 
-export default Card;
+export default MovieCard;

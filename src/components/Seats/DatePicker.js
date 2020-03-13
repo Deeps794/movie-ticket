@@ -15,7 +15,7 @@ export function SelectDatePicker(props) {
                     </div>
                     <div className="modal-body text-center" style={{ background: '#344955', color: 'white' }}>
                         <DatePicker selected={props.date} onChange={props.onChange} maxDate={props.maxDate}
-                            value={props.selectedDate} placeholderText="Choose a date" minDate={props.minDate}/>
+                            value={props.selectedDate} placeholderText="Choose a date" minDate={props.minDate} />
                     </div>
                 </div>
             </div>

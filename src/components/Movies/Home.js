@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Dashboard from './DashboardComponent';
-import Main from './MainComponent';
+import Dashboard from './Dashboard';
+import Main from './Main';
 
 function Home() {
     return (
