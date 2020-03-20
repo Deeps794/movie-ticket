@@ -1,12 +1,10 @@
 .review .card {
-	background: #344955;
+	background: #34495570;
 	border-bottom: 5px solid #2b3b44;
-	margin: 20px 0px;
 	border-radius: 0;
 }
 
 .review .card-body {
-	background: #344955;
 	color: white;
 }
 

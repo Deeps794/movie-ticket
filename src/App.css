@@ -1,17 +1,33 @@
 /* //  ******** App Component Styles ******** // */
+
+
+* {
+	font-family: 'Reem Kufi', sans-serif;
+}
+
 #root, html {
-	background: #344955;
+	background-image: url('/images/Theatres/TheatreBg.jpg');
+}
+
+.no-event {
+	text-align: center;
+	color: white;
+	vertical-align: middle;
+	margin-top: 200px;
+}
+
+.navbar-brand {
+	font-family: 'Luckiest Guy', cursive;
 }
 
 .container-fluid {
-	background: #344955;
 	margin-top: 74px;
 	margin-bottom: 45px;
 }
 
-.navbar {
+/* .navbar {
 	background: #f9aa33;
-}
+} */
 
 .navbar-brand {
 	color: #344955;
@@ -120,10 +136,10 @@
 
 .btn-ticket {
 	height: 50px;
-    margin: 10px 0;
-    font-size: 20px;
-    text-decoration: dashed;
-    font-weight: bold;
+	margin: 10px 0;
+	font-size: 20px;
+	text-decoration: dashed;
+	font-weight: bold;
 }
 
 .disabled {

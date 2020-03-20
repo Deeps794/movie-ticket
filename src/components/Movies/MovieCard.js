@@ -8,9 +8,9 @@ function MovieCard(props) {
     return (
         <div className="card">
             <img className="card-img-top" src={'images/film-cards/' + props.movieId + '.jpg'} alt="Card cap" />
-            <div className="card-body p-2">
+            <div className="card-body px-0 py-2">
                 <h5 className="card-title my-0 d-inline-block">Movie Title</h5>
-                <span className="px-2 position-relative" style={{ bottom: '2px' }}>
+                <span className="position-relative" style={{ bottom: '2px', float: 'right' }}>
                     <FontAwesomeIcon icon={SVG.faStar}></FontAwesomeIcon>
                 </span>
                 <p className="card-text" style={{ fontSize: '12px' }}>Starring Actor 1, Actor 2 and Actor 3.</p>

@@ -36,7 +36,7 @@ export class Header extends Component {
     render() {
         return (
             <nav className="navbar navbar-expand-lg fixed-top">
-                <Link className="navbar-brand" to="/home">BookMyMovie </Link>
+                <Link className="navbar-brand" to="/home">BOOK<span style={{color: '#d72323', fontFamily: 'inherit'}}>M</span>YMOVIE</Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
                     aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon" id="toggle"></span>
@@ -54,7 +54,7 @@ export class Header extends Component {
                     </div>
                 </div>
                 <div className="position-absolute" style={{ right: '0', padding: '15px' }}>
-                    <FontAwesomeIcon icon={SVG.faVideo} color="#344955" size="3x" ></FontAwesomeIcon>
+                    <FontAwesomeIcon icon={SVG.faFilm} color="#344955" size="3x" ></FontAwesomeIcon>
                 </div>
             </nav>
         );
