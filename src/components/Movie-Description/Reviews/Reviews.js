@@ -2,39 +2,44 @@ import './Reviews.css';
 
 import * as SVG from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import axios from 'axios';
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+
+import Review from '../../../data/Reviews/Reviews';
 
 export class Reviews extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            reviews: []
+            reviews: Review
         };
     }
 
     componentDidMount() {
         this.getReviewList();
-        axios.get('https://localhost:8443/reviews?movieId=' + this.props.movieId, { headers: { 'x-api-key': '3f2c60a7-99c7-410e-8397-c32acaed7c06' } }).then(response => {
-            this.setState({ reviews: response.data });
-        });
+        // axios.get('https://localhost:8443/reviews?movieId=' + this.props.movieId, { headers: { 'x-api-key': '3f2c60a7-99c7-410e-8397-c32acaed7c06' } }).then(response => {
+        //     this.setState({ reviews: response.data });
+        // });
     }
 
     render() {
         return (
-            <div className="row review">
-                <div className="col">
-                    <div className="card">
-                        <div className="card-body">
-                            <div className="row">
-                                {this.getReviewList()}
+            <React.Fragment>
+
+                <div className="row review">
+                    <div className="col">
+                        <div className="card">
+                            <div className="card-body">
+                                <div className="row">
+                                    {this.addReview()}
+                                    {this.getReviewList()}
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </React.Fragment>
         );
     }
 
@@ -60,8 +65,27 @@ export class Reviews extends Component {
                     </React.Fragment>);
             }));
     }
+
+    addReview() {
+        return (
+            <div className="col-12">
+                <div className="row">
+                    <div className="col-12 col-md-8 offset-md-2 offset-0">
+                        <form>
+                            <div className="form-group col-md-3 col-12 p-0">
+                                <input type="text" className="form-control" placeholder="Add Name" />
+                            </div>
+                            <div className="form-group">
+                                <textarea type="text" className="form-control" placeholder="Add Review" />
+                            </div>
+                            <button className="btn btn-warning" type="button">Add Comment</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        );
+    }
 }
-
-
 
 export default withRouter(Reviews);

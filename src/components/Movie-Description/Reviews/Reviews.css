@@ -8,3 +8,8 @@
 	color: white;
 }
 
+.review input, .review textarea {
+	background: transparent;
+    border: 3px solid;
+}
+

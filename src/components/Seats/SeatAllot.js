@@ -96,12 +96,13 @@ class SeatAllot extends Component {
     render() {
         return (
             <div>
-                {this.getSeatLayout()}
                 <div className="row">
                     <button
-                        className={(this.state.bookedSeats.length > 0 ? '' : ' disabled ') + 'btn btn-block btn-info btn-ticket'}
-                        onClick={this.showBookedTickets}>Book Tickets</button>
+                        className={(this.state.bookedSeats.length > 0 ? '' : ' disabled ') + 'btn btn-success btn-ticket'}
+                        onClick={this.showBookedTickets}>
+                             {this.state.bookedSeats.length === 0 ? 'Book Tickets': 'Proceed with ' + this.state.bookedSeats.length + ' tickets' }</button>
                 </div>
+                {this.getSeatLayout()}
                 <button type="button" className="btn btn-primary d-none" data-toggle="modal" data-target="#staticBackdrop"
                     ref={button => this.dateModal = button}>
                     Launch static backdrop modal

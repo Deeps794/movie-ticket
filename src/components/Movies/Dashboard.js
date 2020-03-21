@@ -2,7 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 
 function Dashboard(props) {
-    const banner = ['BadBoys', 'Darbar', 'GentleMan', 'Psycho'];
+    const banner = ['M7741', 'M1120', 'M5020', 'M3341', 'M2249'];
     return (
         <div className="position-relative">
             <div id="carouselExampleControls" className="carousel slide carousel-fade" data-ride="carousel">

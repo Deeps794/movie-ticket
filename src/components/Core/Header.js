@@ -53,8 +53,8 @@ export class Header extends Component {
                             to="/play" onClick={() => this.onActiveLink('play')}>Plays</Link>
                     </div>
                 </div>
-                <div className="position-absolute" style={{ right: '0', padding: '15px' }}>
-                    <FontAwesomeIcon icon={SVG.faFilm} color="#344955" size="3x" ></FontAwesomeIcon>
+                <div className="position-absolute brand-image" style={{ right: '0', padding: '15px' }}>
+                    <FontAwesomeIcon icon={SVG.faFilm} color="#ff304f" size="3x" ></FontAwesomeIcon>
                 </div>
             </nav>
         );

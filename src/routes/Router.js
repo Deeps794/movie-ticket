@@ -34,7 +34,7 @@ class Router extends React.PureComponent {
                         timeout={500}
                         classNames={
                             getPathDepth(this.props.location) - this.state.prevDepth > 0
-                                ? "pageSliderLeft"
+                                ? "pageSliderRight"
                                 : "pageSliderRight"
                         }
                         mountOnEnter={true}

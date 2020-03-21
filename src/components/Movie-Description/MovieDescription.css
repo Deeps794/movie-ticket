@@ -3,7 +3,7 @@
 	padding: 5px 15px;
 	margin: 5px 15px;
 	font-weight: bold;
-	color: white;
+	color: #ff304f;
 	border: 5px solid #232f34;
 	width: 100%;
 	text-align: center;
@@ -22,6 +22,16 @@
 .description {
 	padding: 10px 20px;
 	font-size: 20px;
-	font-weight: bold;
 	color: white;
+}
+
+.card-title {
+	font-weight: bold;
+	font-size: 15px;
+	width: 90%;
+}
+ul {
+	list-style: inside;
+	color: white;
+	font-style: oblique;
 }

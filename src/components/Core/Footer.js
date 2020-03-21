@@ -9,7 +9,7 @@ export class Footer extends Component {
     render() {
         return (
             <div className="row justify-content-center footer position-fixed" style={{
-                color: '#344955',
+                color: '#ff304f',
                 width: '100%',
                 bottom: '0'
             }}>
@@ -18,7 +18,7 @@ export class Footer extends Component {
                     fontWeight: 'bold',
                     margin: '5px 0'
                 }}><span className="px-2">&copy; 2020 bookmymovie.com</span>
-                    <FontAwesomeIcon icon={SVG.faVideo} color="#344955" size="1x" ></FontAwesomeIcon>
+                    <FontAwesomeIcon icon={SVG.faVideo} color="#ff304f" size="1x" ></FontAwesomeIcon>
                 </p>
             </div >
         );
