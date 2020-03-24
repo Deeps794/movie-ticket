@@ -1,14 +1,21 @@
 import './Payment.css';
 
-import React from 'react';
+import React, { useState } from 'react';
 
 export function Payment() {
+
+    const [cvv, setCVV] = useState('442');
     return (
         <div className="container">
             <div className="text-center pt-4" style={{ color: 'white' }}><h3>Payments</h3></div>
             <form>
                 <div className="card shadow-lg p-0 mb-5 rounded payment-card">
                     <div className="card-body p-0">
+                        <div className="custom-control custom-radio pt-2 pl-0">
+                            <input type="text" className="custom-control-input"name="example1" value="customEx" readOnly/>
+                            <label className="custom-control-label mx-1" htmlFor="">Phone Number</label>
+                            <img src="../images/cards/paypal.png" className="position-absolute card-icon" alt="Pay Pal"></img>
+                        </div>
                         <div className="custom-control custom-radio pt-2 pl-0">
                             <input type="radio" className="custom-control-input" id="customRadio" name="example1" value="customEx" />
                             <label className="custom-control-label mx-1" htmlFor="customRadio">Pay Pal</label>
@@ -34,7 +41,7 @@ export function Payment() {
                             </div>
                             <label htmlFor="cardExpiryMonth" className="col-3 col-form-label">CVV</label>
                             <div className="col-3">
-                                <input type="text" readOnly className="form-control-plaintext" id="cardExpiryMonth" placeholder="___" />
+                                <input type="text" onChange={(event) => onChangeInput(event)} value={cvv} className="form-control-plaintext" id="cardExpiryMonth" placeholder="___" />
                             </div>
                         </div>
                     </div>
@@ -49,6 +56,11 @@ export function Payment() {
 
 function showAlert() {
     alert('Tickets Booked Successfully....');
+}
+
+function onChangeInput(event) {
+    event.persist();
+    console.log(event);
 }
 
 export default Payment;

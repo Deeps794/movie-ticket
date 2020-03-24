@@ -36,10 +36,12 @@ export class Header extends Component {
     render() {
         return (
             <nav className="navbar navbar-expand-lg fixed-top">
-                <Link className="navbar-brand" to="/home">BOOK<span style={{color: '#d72323', fontFamily: 'inherit'}}>M</span>YMOVIE</Link>
+                <Link className="navbar-brand" to="/home">BOOK<span style={{ color: '#d72323', fontFamily: 'inherit' }}>M</span>YMOVIE</Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon" id="toggle"></span>
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" style={{ zIndex: 11 }}>
+                    <span className="navbar-toggler-icon" id="toggle">
+                        <FontAwesomeIcon icon={SVG.faFilm} color="#ff304f" size="2x" className="toggle-icon" ></FontAwesomeIcon>
+                    </span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div className="navbar-nav">
@@ -53,7 +55,7 @@ export class Header extends Component {
                             to="/play" onClick={() => this.onActiveLink('play')}>Plays</Link>
                     </div>
                 </div>
-                <div className="position-absolute brand-image" style={{ right: '0', padding: '15px' }}>
+                <div className="position-absolute brand-image d-none d-md-block" style={{ right: '0', padding: '15px' }}>
                     <FontAwesomeIcon icon={SVG.faFilm} color="#ff304f" size="3x" ></FontAwesomeIcon>
                 </div>
             </nav>

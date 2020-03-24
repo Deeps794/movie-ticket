@@ -51,11 +51,19 @@ html {
 	font-size: 2em;
 	font-weight: bold;
 	font-family: 'Luckiest Guy', cursive;
+	text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #f9aa33, 0 0 30px #f9aa33, 0 0 40px #f9aa33, 0 0 55px #f9aa33, 0 0 75px #f9aa33;
+    text-align: center;
 }
 
 .nav-item {
 	color: #586e72;
 	font-weight: bold;
+}
+
+.toggle-icon {
+	position: relative;
+    bottom: 5px;
+    left: 7px;
 }
 
 /* //  ******** Main Component Styles ******** // */
