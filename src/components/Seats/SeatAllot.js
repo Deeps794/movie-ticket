@@ -16,6 +16,8 @@ class SeatAllot extends Component {
             seats: this.createSeats(),
             occupiedSeats: ['A11', 'A12', 'A22', 'E7', 'F22', 'F17', 'F18', 'H2']
         });
+        
+        window.scrollTo(0,document.body.scrollHeight);
         this.dateModal.click();
     }
 

@@ -45,7 +45,6 @@ class Payment extends React.Component {
     }
 
     componentDidMount() {
-        
         // this.setState({formError: this.state.cardType === 'others'});
     }
 
@@ -59,7 +58,7 @@ class Payment extends React.Component {
                     <div className="custom-control custom-radio pt-2 pl-0">
                             <input type="radio" className="custom-control-input" id="customRadio1" name="example1" 
                                 checked={this.state.cardType === "Paypal"} onChange={()=> {this.handleCardTypeChange("Paypal")}} value="Paypal" />
-                            <label className="custom-control-label mx-1" htmlFor="">PayPal</label>
+                            <label className="custom-control-label mx-1" htmlFor="customRadio1">PayPal</label>
                             <img src="../images/cards/paypal.png" className="position-absolute card-icon" alt="Pay Pal"></img>
                         </div>
                         <div className="custom-control custom-radio pt-2 pl-0 p-relative">
@@ -68,7 +67,7 @@ class Payment extends React.Component {
                            <label className="custom-control-label mx-1" htmlFor="customRadio">Phonepe</label>
                             <div className="p-relative">
                             <input type="text"  className={(this.state.cardType === 'Phonepe' ? '' : 'disable-cards ') + "form-control-plaintext number-box"} id="number" value={this.state.number.value} 
-                                    autocomplete="off" maxLength="10" onChange={($event) => {this.handleNumberChange($event);}} placeholder="Enter number" />
+                                    autoComplete="off" maxLength="10" onChange={($event) => {this.handleNumberChange($event);}} placeholder="Enter number" />
                                 <span className="error phone-number">{this.state.formErrors.phonepe.number}</span>
                             </div>
                             <img src="../images/cards/paypal.png" className="position-absolute card-icon" alt="Pay Pal"></img>
@@ -85,7 +84,7 @@ class Payment extends React.Component {
                             <label htmlFor="cardNumber" className="col-4 col-form-label">Card Number</label>
                             <div className="col-8 position-relative">
                                 <input type="text" className="form-control-plaintext" id="cardNumber" value={this.state.cardNumber.value} maxLength="16"
-                                    autocomplete="off"onChange={($event) => {this.handleCardNumberChange($event);}} placeholder="____-____-____-____" />
+                                    autoComplete="off"onChange={($event) => {this.handleCardNumberChange($event);}} placeholder="____-____-____-____" />
                                     <span className="error card-number">{this.state.formErrors.others.cardNumber}</span>
                             </div>
                         </div>
@@ -99,7 +98,7 @@ class Payment extends React.Component {
                             <label htmlFor="cardExpiryMonth" className="col-3 col-form-label">CVV</label>
                             <div className="col-3 position-relative">
                                 <input type="text" className="form-control-plaintext" id="cardExpiryMonth" value={this.state.cardCVV.value} maxLength="3"
-                                    autocomplete="off" onChange={($event) => {this.handleCardCVVChange($event)}} placeholder="___" />
+                                    autoComplete="off" onChange={($event) => {this.handleCardCVVChange($event)}} placeholder="___" />
                                     <span className="error cvv">{this.state.formErrors.others.cardCVV}</span>
                             </div>
                         </div>
