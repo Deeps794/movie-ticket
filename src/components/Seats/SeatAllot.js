@@ -8,17 +8,17 @@ import React, { Component } from 'react';
 import SelectDatePicker from './DatePicker';
 
 class SeatAllot extends Component {
-    columnLimit = 25;
-    rowLimit = 20;
+    columnLimit = 10;
+    rowLimit = 7;
 
     componentDidMount() {
         this.setState({
             seats: this.createSeats(),
             occupiedSeats: ['A11', 'A12', 'A22', 'E7', 'F22', 'F17', 'F18', 'H2']
         });
-        
-        window.scrollTo(0,document.body.scrollHeight);
-        this.dateModal.click();
+
+        window.scrollTo(0, document.body.scrollHeight);
+        // this.dateModal.click();
     }
 
     createSeats() {
@@ -97,37 +97,19 @@ class SeatAllot extends Component {
 
     render() {
         return (
-            <div>
-                <div className="row">
-                    <button
-                        className={(this.state.bookedSeats.length > 0 ? '' : ' disabled ') + 'btn btn-success btn-ticket'}
-                        onClick={this.showBookedTickets}>
-                             {this.state.bookedSeats.length === 0 ? 'Book Tickets': 'Proceed with ' + this.state.bookedSeats.length + ' tickets' }</button>
-                </div>
+            <React.Fragment>
                 {this.getSeatLayout()}
-                <button type="button" className="btn btn-primary d-none" data-toggle="modal" data-target="#staticBackdrop"
-                    ref={button => this.dateModal = button}>
-                    Launch static backdrop modal
-                </button>
-                <SelectDatePicker date={this.state.date} onChange={this.onDateChange} maxDate={this.getMaximumDate()}
-                    selectedDate={this.state.displayDate} minDate={new Date()} />
-            </div>
+            </React.Fragment>
+
         );
     }
 
     getSeatLayout() {
         return this.state.seats.map((row, rowIndex) => {
             return (
-                <div className="row" key={rowIndex} style={{ borderBottom: '5px solid #232f34' }}>
-                    <div className="col-1">
-                        <span className="seat-row-card">{String.fromCharCode(65 + rowIndex)}</span>
-                    </div>
-
-                    <div className="col-11 text-center pt-0">
-                        {this.getSeatColumns(row, rowIndex)}
-                    </div>
+                <div className="col text-center pt-0" key={rowIndex}>
+                    {this.getSeatColumns(row, rowIndex)}
                 </div>
-
             );
         });
     }
@@ -142,7 +124,7 @@ class SeatAllot extends Component {
             return (
                 <div key={columnIndex} className="seat">
                     <span className="seat-number">{Object.keys(seat)[0]}</span>
-                    <FontAwesomeIcon icon={SVG.faCouch} color={seat[Object.keys(seat)[0]] ? '#7CB342' : '#ECEFF1'} size="2x"
+                    <FontAwesomeIcon icon={SVG.faSquareFull} color={seat[Object.keys(seat)[0]] ? '#7CB342' : '#4f4d7c'} size="2x"
                         onClick={() => this.toggleBookedStatus(rowIndex, columnIndex)}
                         className={this.state.occupiedSeats.includes(Object.keys(seat)[0]) ? 'booked' : ''} />
                 </div>

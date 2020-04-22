@@ -1,11 +1,10 @@
 .payment-card {
 	width: 50%;
-	margin: auto;
-	min-width: 300px;
-	position: relative;
-	top: 10vh;
-	background: #2f434e;
-    box-shadow: 3px 3px 3px 3px #2f434e;
+    margin: auto;
+    min-width: 300px;
+    position: relative;
+    top: 10vh;
+    background: #34495570;
 }
 
 .custom-radio {
@@ -105,9 +104,9 @@ label {
 }
 
 .payment-disabled {
-	background-color: #9e9e9e !important;
-	pointer-events: none;
-	border: #9e9e9e;
+	background-color: transparent;
+    pointer-events: none;
+    border: #9e9e9e;
 }
 
 .disable-cards {

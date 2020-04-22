@@ -1,6 +1,7 @@
 import './Payment.css';
-import DatePicker from 'react-datepicker';
+
 import React from 'react';
+import DatePicker from 'react-datepicker';
 
 
 class Payment extends React.Component {
@@ -64,13 +65,13 @@ class Payment extends React.Component {
                         <div className="custom-control custom-radio pt-2 pl-0 p-relative">
                             <input type="radio" className="custom-control-input" id="customRadio" name="example1" 
                                 checked={this.state.cardType === "Phonepe"} onChange={()=> {this.handleCardTypeChange("Phonepe")}} value="Phonepe" />
-                           <label className="custom-control-label mx-1" htmlFor="customRadio">Phonepe</label>
+                           <label className="custom-control-label mx-1" htmlFor="customRadio">BM UPI Id</label>
                             <div className="p-relative">
                             <input type="text"  className={(this.state.cardType === 'Phonepe' ? '' : 'disable-cards ') + "form-control-plaintext number-box"} id="number" value={this.state.number.value} 
                                     autoComplete="off" maxLength="10" onChange={($event) => {this.handleNumberChange($event);}} placeholder="Enter number" />
                                 <span className="error phone-number">{this.state.formErrors.phonepe.number}</span>
                             </div>
-                            <img src="../images/cards/paypal.png" className="position-absolute card-icon" alt="Pay Pal"></img>
+                            <img src="../images/cards/master-card-1.png" className="position-absolute card-icon" alt="Pay Pal"></img>
                         </div>
                         <div className="custom-control custom-radio pt-2 pl-0">
                             <input type="radio" className="custom-control-input" id="customRadio2" name="example1" 
@@ -193,7 +194,7 @@ handleValidation(cardType) {
 }
 validateOtherCrds() {
     this.setState({formError: true});
-    for(const [key,value] of Object.entries(this.state.formErrors.others)) {
+    for(const value of Object.entries(this.state.formErrors.others)) {
         if(value !== '') {
             this.setState({formError: true});
             return;

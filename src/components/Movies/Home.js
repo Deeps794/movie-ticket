@@ -5,10 +5,10 @@ import Main from './Main';
 
 function Home() {
     return (
-        <div className="container-fluid">
+        <React.Fragment>
             <Dashboard />
             <Main />
-        </div>
+        </React.Fragment>
     );
 }
 

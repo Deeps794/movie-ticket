@@ -13,7 +13,7 @@ function App() {
         <div className="container-fluid">
             <BrowserRouter>
                 <Header />
-                    <Router />
+                <Router />
                 <Footer />
             </BrowserRouter>
         </div>

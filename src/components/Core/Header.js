@@ -36,7 +36,7 @@ export class Header extends Component {
     render() {
         return (
             <nav className="navbar navbar-expand-lg fixed-top">
-                <Link className="navbar-brand" to="/home">BOOK<span style={{ color: '#d72323', fontFamily: 'inherit' }}>M</span>YMOVIE</Link>
+                <Link className="navbar-brand" to="/home">BO<span style={{ color: '#d72323', fontFamily: 'inherit' }}>X</span>OFFICE</Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
                     aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" style={{ zIndex: 11 }}>
                     <span className="navbar-toggler-icon" id="toggle">

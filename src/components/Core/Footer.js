@@ -8,7 +8,7 @@ export class Footer extends Component {
 
     render() {
         return (
-            <div className="row justify-content-center footer position-fixed" style={{
+            <div className="row justify-content-center footer" style={{
                 color: '#ff304f',
                 width: '100%',
                 bottom: '0'
