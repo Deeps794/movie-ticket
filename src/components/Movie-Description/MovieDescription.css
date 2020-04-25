@@ -15,18 +15,21 @@
 }
 
 .card-title {
-  font-weight: bold;
-  font-size: 15px;
-  width: 90%;
+  font-size: 1.5em;
+  padding: .5em 1em;
+  border-bottom: 1px solid;
 }
+
 ul {
   list-style: none;
   font-style: oblique;
   font-size: 12px;
 }
+
 ul li {
   display: inline-block;
 }
+
 ul li::after {
   content: ", ";
 }
@@ -83,9 +86,11 @@ ul li:last-child::after {
   height: 100%;
   color: #007bff;
 }
+
 .checkout-item:first-child {
   border-right: 4px solid #007bff;
 }
+
 .checkout-item span {
   text-align: center;
   font-size: 2em;

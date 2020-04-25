@@ -63,6 +63,13 @@
   border: 0;
 }
 
+.card-body {
+  display: flex;
+  align-items: center;
+  color: white;
+  justify-content: center;
+}
+
 .card-group-title {
   font-size: 2em;
   border-radius: 25px;
@@ -74,18 +81,13 @@
 
 .banner-card {
   padding: 2em;
-  background: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0.9) 25%,
-    transparent 100%
-  );
+  background: linear-gradient(to right,
+      rgba(0, 0, 0, 0.9) 25%,
+      transparent 100%);
   height: 100%;
   display: flex;
   flex-flow: column;
   justify-content: center;
-}
-.card-img-top {
-  height: 300px;
 }
 
 .card-img-banner {
@@ -106,6 +108,7 @@
   transition: all 0.2s ease-in-out;
   background: transparent;
   color: #656565;
+  position: relative
 }
 
 .card:hover {
@@ -188,12 +191,14 @@
   width: 100%;
   display: block;
 }
+
 .description-banner {
   background: url(https://wallpapershome.com/images/pages/pic_h/22408.jpg);
   background-size: cover;
 }
 
-.btn-buy-ticket:hover, .btn-trailer:hover {
+.btn-buy-ticket:hover,
+.btn-trailer:hover {
   transform: scale(0.9);
 }
 
@@ -240,11 +245,20 @@ a:hover,
 }
 
 .movie-card {
-  height: 95px;
-  display: flex;
-  flex-flow: row wrap;
-  position: relative;
-  align-items: flex-end;
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  background-color: #ff304f;
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  transition: .3s ease-out;
+}
+
+.card:hover .movie-card {
+  bottom: 0;
+  height: 100%;
 }
 
 .navbar-brand {
@@ -255,33 +269,43 @@ a:hover,
   0% {
     transform: translate(1px, 1px) rotate(0deg);
   }
+
   10% {
     transform: translate(-1px, -2px) rotate(-1deg);
   }
+
   20% {
     transform: translate(-3px, 0px) rotate(1deg);
   }
+
   30% {
     transform: translate(3px, 2px) rotate(0deg);
   }
+
   40% {
     transform: translate(1px, -1px) rotate(1deg);
   }
+
   50% {
     transform: translate(-1px, 2px) rotate(-1deg);
   }
+
   60% {
     transform: translate(-3px, 1px) rotate(0deg);
   }
+
   70% {
     transform: translate(3px, 1px) rotate(-1deg);
   }
+
   80% {
     transform: translate(-1px, -1px) rotate(1deg);
   }
+
   90% {
     transform: translate(1px, 2px) rotate(0deg);
   }
+
   100% {
     transform: translate(1px, -2px) rotate(-1deg);
   }
@@ -300,13 +324,11 @@ a:hover,
 
 .navbar,
 .container-fluid {
-  background: linear-gradient(
-    137deg,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(19, 19, 19, 1) 22%,
-    rgba(41, 40, 40, 1) 42%,
-    rgba(52, 52, 52, 1) 69%,
-    rgba(116, 116, 116, 1) 85%,
-    rgba(238, 236, 236, 1) 100%
-  );
+  background: linear-gradient(137deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(19, 19, 19, 1) 22%,
+      rgba(41, 40, 40, 1) 42%,
+      rgba(52, 52, 52, 1) 69%,
+      rgba(116, 116, 116, 1) 85%,
+      rgba(238, 236, 236, 1) 100%);
 }

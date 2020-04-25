@@ -19,22 +19,14 @@ export class MovieCard extends Component {
 
     render() {
         return (
-            <div className="card">
-                <img className="card-img-top" src={IMAGE.BASE_URL + IMAGE.POSTER_SIZE + this.props.movie.poster_path} alt="Card cap" />
-                <div className="card-body p-2 movie-card">
-                    <h5 className="card-title my-0 d-inline-block">{this.props.movie.title}</h5>
-                    <span className="position-absolute my-3" style={{ right: '10px', float: 'right', top: '0px' }}
+            <div className="card" style={{height: '60vh'}}>
+                <img className="card-img-top h-100" src={IMAGE.BASE_URL + IMAGE.POSTER_SIZE + this.props.movie.poster_path} alt="Card cap" />
+                <div className="card-body p-0 movie-card">
+                    <span className="card-title my-0">{this.props.movie.title}</span>
+                    {/* <span className="position-absolute my-3" style={{ right: '10px', float: 'right', top: '0px' }}
                         onMouseOver={() => this.setState({ favorite: !this.state.favorite })}>
                         <FontAwesomeIcon icon={SVG.faHeart} color={this.state.favorite ? '#ff304f' : 'gray'}></FontAwesomeIcon>
-                    </span>
-                    <p className="card-text" style={{ fontSize: '12px' }}>
-                        <span style={{ color: '#ff304f', fontWeight: 'bold' }}>Staring</span>
-                        {
-                            this.state.cast.map((castActor, index) =>
-                                <span key={index}> {castActor}, </span>
-                            )
-                        }
-                    </p>
+                    </span> */}
                 </div>
             </div>
         );
