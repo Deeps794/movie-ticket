@@ -10,23 +10,32 @@ export class MovieCard extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            favorite: false,
-            imageUrl: '',
-            cast: []
-        }
     }
 
     render() {
         return (
-            <div className="card" style={{height: '60vh'}}>
+            <div className="card" style={{ height: '60vh' }}>
                 <img className="card-img-top h-100" src={IMAGE.BASE_URL + IMAGE.POSTER_SIZE + this.props.movie.poster_path} alt="Card cap" />
                 <div className="card-body p-0 movie-card">
                     <span className="card-title my-0">{this.props.movie.title}</span>
-                    {/* <span className="position-absolute my-3" style={{ right: '10px', float: 'right', top: '0px' }}
-                        onMouseOver={() => this.setState({ favorite: !this.state.favorite })}>
-                        <FontAwesomeIcon icon={SVG.faHeart} color={this.state.favorite ? '#ff304f' : 'gray'}></FontAwesomeIcon>
-                    </span> */}
+                    <div className="movie-add-ons">
+                        <div className="add-on-item">
+                            <span>Popularity</span>
+                            <span>{this.props.movie.popularity}</span>
+                        </div>
+                        <div className="add-on-item">
+                            <span>Votes</span>
+                            <span>{this.props.movie.vote_count}</span>
+                        </div>
+                        <div className="add-on-item">
+                            <span>Rating </span>
+                            <span>{this.props.movie.vote_average}</span>
+                        </div>
+                    </div>
+                </div>
+                <div className="card-footer">
+                    <span>{this.props.movie.title}</span>
+
                 </div>
             </div>
         );

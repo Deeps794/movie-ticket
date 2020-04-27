@@ -4,7 +4,6 @@
   font-family: "Reem Kufi", sans-serif;
 }
 
-
 .no-event {
   text-align: center;
   color: white;
@@ -61,6 +60,7 @@
 .card-img-top {
   border-radius: 0;
   border: 0;
+  color: antiquewhite;
 }
 
 .card-body {
@@ -68,6 +68,45 @@
   align-items: center;
   color: white;
   justify-content: center;
+  flex-flow: column;
+}
+
+.movie-add-ons {
+  display: flex;
+  flex-flow: column;
+  padding: 1em;
+  font-size: 0.8em;
+  width: 60%;
+}
+
+.add-on-item {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0.1em;
+}
+.card-footer {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  font-size: 1em;
+  color: white;
+  background: linear-gradient(to top, rgba(0, 0, 0, 1) 0, transparent 100%);
+  transition: all 0.2s ease-in-out;
+}
+
+.card-footer span {
+  text-transform: uppercase;
+  font-size: 12px;
+}
+.card:hover .card-footer {
+  opacity: 0;
+}
+.card:hover .card-footer span {
+  transform: translateY(-50%);
 }
 
 .card-group-title {
@@ -81,9 +120,11 @@
 
 .banner-card {
   padding: 2em;
-  background: linear-gradient(to right,
-      rgba(0, 0, 0, 0.9) 25%,
-      transparent 100%);
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.5) 20%,
+    transparent 100%
+  );
   height: 100%;
   display: flex;
   flex-flow: column;
@@ -108,7 +149,7 @@
   transition: all 0.2s ease-in-out;
   background: transparent;
   color: #656565;
-  position: relative
+  position: relative;
 }
 
 .card:hover {
@@ -224,7 +265,6 @@ a:hover,
 }
 
 .banner {
-  background-image: url("https://wallpapershome.com/images/pages/pic_h/22408.jpg");
   height: 80vh;
   width: 100%;
   background-size: cover;
@@ -253,7 +293,7 @@ a:hover,
   overflow: hidden;
   width: 100%;
   height: 0;
-  transition: .3s ease-out;
+  transition: 0.3s ease-out;
 }
 
 .card:hover .movie-card {
@@ -324,11 +364,13 @@ a:hover,
 
 .navbar,
 .container-fluid {
-  background: linear-gradient(137deg,
-      rgba(0, 0, 0, 1) 0%,
-      rgba(19, 19, 19, 1) 22%,
-      rgba(41, 40, 40, 1) 42%,
-      rgba(52, 52, 52, 1) 69%,
-      rgba(116, 116, 116, 1) 85%,
-      rgba(238, 236, 236, 1) 100%);
+  background: linear-gradient(
+    137deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(19, 19, 19, 1) 22%,
+    rgba(41, 40, 40, 1) 42%,
+    rgba(52, 52, 52, 1) 69%,
+    rgba(116, 116, 116, 1) 85%,
+    rgba(238, 236, 236, 1) 100%
+  );
 }

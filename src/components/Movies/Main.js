@@ -24,7 +24,7 @@ export class Main extends Component {
         return (
             <React.Fragment>
                 <div className="row">
-                    <div className="card-group-title">Popular</div>
+                    <div className="card-group-title">Now Playing</div>
                 </div>
                 <div className="row card-wrap ">
                     {this.getMovieCards(this.state.playingMovies)}
@@ -50,7 +50,7 @@ export class Main extends Component {
     }
 
     routeToMovie(movie, props) {
-        props.history.push('/movie/' + movie.movieId);
+        props.history.push('/movie/' + movie.id);
     }
 
 }

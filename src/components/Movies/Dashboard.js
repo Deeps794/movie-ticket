@@ -1,15 +1,34 @@
 import * as SVG from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
+import { getData } from '../../services/bo.http.service';
+import { IMAGE } from '../../axios/ImageApi';
 
 function Dashboard(props) {
-    const banner = ['M7741', 'M1120', 'M5020', 'M3341', 'M2249'];
+
+    const [banner, setBanner] = useState({
+        title: '',
+        overview: '',
+        bannerUrl: ''
+    });
+
+    useEffect(() => {
+        getData('movie/457335').then(response => {
+            const movieDetails = response.data;
+            setBanner({
+                title: movieDetails.title,
+                overview: movieDetails.overview,
+                bannerUrl: 'url(' + IMAGE.BASE_URL + IMAGE.BACKDROP_SIZE + movieDetails.backdrop_path + ')'
+            });
+        });
+    });
+
     return (
-        <div className="banner">
+        <div className="banner" style={{ backgroundImage: banner.bannerUrl }}>
             <div className="banner-card" style={{ maxWidth: '80%' }}>
                 <div className="banner-title">
-                    <h1>No Time to Die</h1>
+                    <h1>{banner.title}</h1>
                     <span className="banner-movie-type">Action</span>
                     <div>
                         <FontAwesomeIcon icon={SVG.faStar} color="#ff304f" size="1x" className="toggle-icon" ></FontAwesomeIcon>
@@ -19,14 +38,12 @@ function Dashboard(props) {
                         <FontAwesomeIcon icon={SVG.faStar} color="#75757580" size="1x" className="toggle-icon" ></FontAwesomeIcon>
                     </div>
                 </div>
-                <p style={{ maxWidth: '60%' }}>No Time to Die is a forthcoming spy film and the twenty-fifth instalment in the
-                James Bond film series produced by Eon Productions. It features Daniel Craig in his
-            fifth and final outing as the fictional MI6 agent James Bond</p>
+                <p style={{ maxWidth: '60%' }}>{banner.overview}</p>
                 <h4 style={{ color: '#ff304f' }}>By: Cary Joji Fukunaga</h4>
             </div>
             <button className="btn-buy-ticket">Buy Tickets
             <FontAwesomeIcon icon={SVG.faArrowAltCircleRight} size="1x" className="mx-2"
-                style={{position: 'relative', top: '1px'}} ></FontAwesomeIcon>
+                    style={{ position: 'relative', top: '1px' }} ></FontAwesomeIcon>
             </button>
         </div>
     );
