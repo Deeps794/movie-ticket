@@ -1,128 +1,10 @@
-/* //  ******** App Component Styles ******** // */
-
-* {
-  font-family: "Reem Kufi", sans-serif;
-}
-
-.no-event {
-  text-align: center;
-  color: white;
-  vertical-align: middle;
-  margin-top: 200px;
-}
-
-.container-fluid {
-  padding-top: 90px;
-}
-
-/* .navbar {
-	background: #f9aa33;
-} */
-
-.navbar-brand {
-  color: #586e72;
-  font-size: 2em;
-}
-
-.nav-item {
-  color: #586e72;
-  font-weight: bold;
-}
-
-.toggle-icon {
-  position: relative;
-  bottom: 5px;
-  left: 7px;
-}
-
-/* //  ******** Main Component Styles ******** // */
-
-.col-12 {
-  padding: 14px;
-}
-
-.row-wrapper {
-  margin: 14px;
-}
-
-.carousel-item {
-  max-height: 550px;
-  min-height: 200px;
-}
-
-.carousel-inner {
-  border-radius: 10px;
-}
-
-.card,
-.card-img-banner,
-.card-body,
-.card-img-top {
-  border-radius: 0;
-  border: 0;
-  color: antiquewhite;
-}
-
-.card-body {
-  display: flex;
-  align-items: center;
-  color: white;
-  justify-content: center;
-  flex-flow: column;
-}
-
-.movie-add-ons {
-  display: flex;
-  flex-flow: column;
-  padding: 1em;
-  font-size: 0.8em;
-  width: 60%;
-}
-
-.add-on-item {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  padding: 0.1em;
-}
-.card-footer {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  font-size: 1em;
-  color: white;
-  background: linear-gradient(to top, rgba(0, 0, 0, 1) 0, transparent 100%);
-  transition: all 0.2s ease-in-out;
-}
-
-.card-footer span {
-  text-transform: uppercase;
-  font-size: 12px;
-}
-.card:hover .card-footer {
-  opacity: 0;
-}
-.card:hover .card-footer span {
-  transform: translateY(-50%);
-}
-
-.card-group-title {
-  font-size: 2em;
-  border-radius: 25px;
-  padding: 10px 15px;
-  margin: 0.5em;
-  color: #656565;
-  width: 100%;
-}
+@import "./Variables.css";
 
 .banner-card {
   padding: 2em;
   background: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0.5) 20%,
+    to bottom,
+    rgba(0, 0, 0, 0.8) 0%,
     transparent 100%
   );
   height: 100%;
@@ -132,7 +14,7 @@
 }
 
 .card-img-banner {
-  height: 370px;
+  height: 50vh;
 }
 
 .card-wrap {
@@ -172,12 +54,35 @@
   margin: 10px 0;
 }
 
+.seat-section {
+  margin: 1em 0 0 0;
+  color: whitesmoke;
+}
+
+.seat-section span {
+  padding: 0 1em;
+  font-size: 0.7em;
+}
+
+.seat-wrap {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.seat-layout {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
 .seat {
   display: inline-block;
   position: relative;
   top: 12px;
   padding: 2px;
-  font-size: 20px;
+  font-size: 90%;
   transition: all 0.2s ease-in-out;
 }
 
@@ -186,9 +91,12 @@
 }
 
 .seat-number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
-  font-size: 14px;
-  top: 25%;
+  font-size: 7px;
+  height: 100%;
   width: 100%;
   color: #c5c5c5;
 }
@@ -227,15 +135,25 @@
   background: #ff304f;
   color: white;
   transition: all 0.2s ease-in-out;
-  padding: 0.6em;
+  padding: 1em;
   border: 0;
   width: 100%;
+  text-transform: uppercase;
   display: block;
+  font-size: 0.7em;
 }
 
 .description-banner {
-  background: url(https://wallpapershome.com/images/pages/pic_h/22408.jpg);
   background-size: cover;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  margin: -10px -15px;
+  background: black;
+}
+
+.description {
+  padding-top: 74px;
 }
 
 .btn-buy-ticket:hover,
@@ -260,12 +178,18 @@ a:hover,
   height: 60vh;
 }
 
+.navbar-nav {
+  align-items: center;
+}
+
 .navbar-nav .active {
+  transition: all 3s ease;
   color: #ff304f;
+  border-bottom: 2px solid;
 }
 
 .banner {
-  height: 80vh;
+  height: 85vh;
   width: 100%;
   background-size: cover;
   color: aliceblue;
@@ -278,9 +202,15 @@ a:hover,
   align-items: center;
 }
 
+.banner-title span:first-child {
+  text-transform: uppercase;
+  padding-right: 10px;
+  font-size: 2.5em;
+}
+
 .banner-movie-type {
   padding: 0 10px;
-  margin: 1em;
+  margin: 0.5em;
   border: 1px solid;
 }
 
@@ -305,72 +235,52 @@ a:hover,
   cursor: pointer;
 }
 
-@keyframes shake {
-  0% {
-    transform: translate(1px, 1px) rotate(0deg);
-  }
-
-  10% {
-    transform: translate(-1px, -2px) rotate(-1deg);
-  }
-
-  20% {
-    transform: translate(-3px, 0px) rotate(1deg);
-  }
-
-  30% {
-    transform: translate(3px, 2px) rotate(0deg);
-  }
-
-  40% {
-    transform: translate(1px, -1px) rotate(1deg);
-  }
-
-  50% {
-    transform: translate(-1px, 2px) rotate(-1deg);
-  }
-
-  60% {
-    transform: translate(-3px, 1px) rotate(0deg);
-  }
-
-  70% {
-    transform: translate(3px, 1px) rotate(-1deg);
-  }
-
-  80% {
-    transform: translate(-1px, -1px) rotate(1deg);
-  }
-
-  90% {
-    transform: translate(1px, 2px) rotate(0deg);
-  }
-
-  100% {
-    transform: translate(1px, -2px) rotate(-1deg);
-  }
-}
-
 .btn-booking {
-  background: transparent;
-  color: gray;
+  background: #ff304f;
+  color: whitesmoke;
   border: transparent;
 }
 
-.navbar {
-  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
-    0 2px 6px 2px rgba(60, 64, 67, 0.15);
+.dropdown-menu {
+  border-radius: 0;
+  background: #ff304f;
 }
 
-.navbar,
-.container-fluid {
-  background: linear-gradient(
-    137deg,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(19, 19, 19, 1) 22%,
-    rgba(41, 40, 40, 1) 42%,
-    rgba(52, 52, 52, 1) 69%,
-    rgba(116, 116, 116, 1) 85%,
-    rgba(238, 236, 236, 1) 100%
-  );
+.dropdown-item {
+  color: whitesmoke;
+  text-align: center;
+}
+
+.screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  height: 7vh;
+  margin: auto;
+  width: 40vh;
+  background: #2b2a2a;
+  transform: perspective(80vh) rotateX(-40deg);
+  color: whitesmoke;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
+.checkout-table {
+  height: 100%;
+  width: 100%;
+  margin: 1em 0;
+  color: whitesmoke;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+  background: #b7b7b720;
+}
+
+.checkout-table tr td {
+  padding: 1em;
+  text-transform: uppercase;
 }

@@ -3,8 +3,8 @@ import './Payment.css';
 import React from 'react';
 import DatePicker from 'react-datepicker';
 
-
 class Payment extends React.Component {
+
     constructor(props) {
         super(props);
         this.state = {

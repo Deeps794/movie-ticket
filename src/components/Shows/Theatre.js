@@ -60,10 +60,6 @@ function getTheatresList(props) {
             </div>
         </div>
     );
-
-    // axios.get('https://localhost:8443/theatres', {headers: {'x-api-key': '3f2c60a7-99c7-410e-8397-c32acaed7c06' } }).then(response => {
-    //     console.log(response);
-    // });
 }
 
 export default Theatre;
