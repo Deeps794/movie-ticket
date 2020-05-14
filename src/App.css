@@ -14,7 +14,7 @@
 }
 
 .card-img-banner {
-  height: 50vh;
+  border-radius: 0.2em;
 }
 
 .card-wrap {
@@ -32,6 +32,7 @@
   background: transparent;
   color: #656565;
   position: relative;
+  text-align: center;
 }
 
 .card:hover {
@@ -57,18 +58,11 @@
 .seat-section {
   margin: 1em 0 0 0;
   color: whitesmoke;
-}
-
-.seat-section span {
-  padding: 0 1em;
-  font-size: 0.7em;
-}
-
-.seat-wrap {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  padding: 1.2em;
 }
 
 .seat-layout {
@@ -111,28 +105,25 @@
 
 .booked {
   pointer-events: none;
-  color: #ef5350 !important;
+  color: #f44336 !important;
 }
 
-.btn-ticket {
-  margin: 20px auto;
-  font-size: 20px;
-  text-decoration: dashed;
+.btn-buy-ticket,
+.btn-proceed {
+  padding: 0.7em 2em;
+  border: 0;
+  background: #ffea00;
+  transition: all 0.2s ease-in-out;
 }
 
 .btn-buy-ticket {
   position: absolute;
   right: 0;
   bottom: 0;
-  padding: 1em 2em;
-  border: 0;
-  background: #ff304f;
-  color: white;
-  transition: all 0.2s ease-in-out;
 }
 
 .btn-trailer {
-  background: #ff304f;
+  background: #ffea00;
   color: white;
   transition: all 0.2s ease-in-out;
   padding: 1em;
@@ -184,12 +175,12 @@ a:hover,
 
 .navbar-nav .active {
   transition: all 3s ease;
-  color: #ff304f;
+  color: #ffea00;
   border-bottom: 2px solid;
 }
 
 .banner {
-  height: 85vh;
+  height: 550px;
   width: 100%;
   background-size: cover;
   color: aliceblue;
@@ -219,7 +210,7 @@ a:hover,
   bottom: 100%;
   left: 0;
   right: 0;
-  background-color: #ff304f;
+  background-color: #ffea00;
   overflow: hidden;
   width: 100%;
   height: 0;
@@ -236,36 +227,9 @@ a:hover,
 }
 
 .btn-booking {
-  background: #ff304f;
+  background: #ffea00;
   color: whitesmoke;
   border: transparent;
-}
-
-.dropdown-menu {
-  border-radius: 0;
-  background: #ff304f;
-}
-
-.dropdown-item {
-  color: whitesmoke;
-  text-align: center;
-}
-
-.screen {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 12px;
-  height: 7vh;
-  margin: auto;
-  width: 40vh;
-  background: #2b2a2a;
-  transform: perspective(80vh) rotateX(-40deg);
-  color: whitesmoke;
-  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
-    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-    0 100px 80px rgba(0, 0, 0, 0.12);
 }
 
 .checkout-table {

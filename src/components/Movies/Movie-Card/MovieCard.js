@@ -13,8 +13,8 @@ export class MovieCard extends Component {
         return (
             <div className="card">
                 <img className="card-img-top" src={IMAGE.BASE_URL + IMAGE.POSTER_SIZE + this.props.movie.poster_path} alt="Card cap" />
-                <div className="card-body p-0 movie-card">
-                    <span className="card-title m-2">{this.props.movie.title}</span>
+                <div className="card-body p-0 movie-card" style={{color: 'black'}}>
+                    <span className="card-title m-2 font-weight-bold">{this.props.movie.title}</span>
                     <div className="movie-add-ons">
                         <div className="add-on-item">
                             <span>Popularity</span>
@@ -37,7 +37,7 @@ export class MovieCard extends Component {
                 <div className="card-footer">
                     <span>{this.props.movie.title}</span>
                     <span>
-                        <FontAwesomeIcon icon={SVG.faHeart} color="#ff304f" size="1x" ></FontAwesomeIcon>
+                        <FontAwesomeIcon icon={SVG.faHeart} color="#FFEA00" size="1x" ></FontAwesomeIcon>
                         &nbsp;&nbsp;
                         {this.props.movie.vote_average}
                         &nbsp;&nbsp;&nbsp;&nbsp;

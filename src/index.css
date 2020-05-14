@@ -35,6 +35,7 @@ code {
 .nav-item {
   color: #586e72;
   font-weight: bold;
+  transition: all 0.3s ease-in-out;
 }
 
 .toggle-icon {
@@ -132,5 +133,20 @@ code {
     flex-flow: row wrap;
     justify-content: center;
     text-align: center;
+  }
+
+}
+
+@media only screen and (max-width: 576px) { 
+  .bo-movie-title {
+    justify-content: center;
+  }
+  .btn-proceed {
+    padding: 0 .7em !important;
+  }
+
+  .banner-card p {
+    max-height: 100px;
+    overflow: scroll;
   }
 }

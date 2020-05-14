@@ -11,7 +11,8 @@ export function Banner(props) {
     const [banner, setBanner] = useState({
         title: '',
         overview: '',
-        bannerUrl: ''
+        bannerUrl: '',
+        movieId: ''
     });
 
     const [genres, setGenres] = useState([]);
@@ -23,7 +24,8 @@ export function Banner(props) {
             setBanner({
                 title: movieDetails.title,
                 overview: movieDetails.overview,
-                bannerUrl: 'url(' + IMAGE.BASE_URL + IMAGE.BACKDROP_SIZE + movieDetails.backdrop_path + ')'
+                bannerUrl: 'url(' + IMAGE.BASE_URL + IMAGE.BACKDROP_SIZE + movieDetails.backdrop_path + ')',
+                movieId: movieDetails.id
             });
 
             getData('movie/' + movieDetails.id).then(response => {
@@ -45,22 +47,22 @@ export function Banner(props) {
                             )
                         }
                         <div>
-                            <FontAwesomeIcon icon={SVG.faStar} color="#ff304f" size="1x" className="toggle-icon" ></FontAwesomeIcon>
-                            <FontAwesomeIcon icon={SVG.faStar} color="#ff304f" size="1x" className="toggle-icon" ></FontAwesomeIcon>
-                            <FontAwesomeIcon icon={SVG.faStar} color="#ff304f" size="1x" className="toggle-icon" ></FontAwesomeIcon>
-                            <FontAwesomeIcon icon={SVG.faStarHalfAlt} color="#ff304f" size="1x" className="toggle-icon" ></FontAwesomeIcon>
+                            <FontAwesomeIcon icon={SVG.faStar} color="#FFEA00" size="1x" className="toggle-icon" ></FontAwesomeIcon>
+                            <FontAwesomeIcon icon={SVG.faStar} color="#FFEA00" size="1x" className="toggle-icon" ></FontAwesomeIcon>
+                            <FontAwesomeIcon icon={SVG.faStar} color="#FFEA00" size="1x" className="toggle-icon" ></FontAwesomeIcon>
+                            <FontAwesomeIcon icon={SVG.faStarHalfAlt} color="#FFEA00" size="1x" className="toggle-icon" ></FontAwesomeIcon>
                             <FontAwesomeIcon icon={SVG.faStar} color="#75757580" size="1x" className="toggle-icon" ></FontAwesomeIcon>
                         </div>
                     </div>
                     <span>SYNOPSIS</span>
                     <p>{banner.overview}</p>
-                    <div style={{color: '#ff304f'}}>
-                        <FontAwesomeIcon icon={SVG.faHeart} size="1x" className="mr-2" color="#ff304f"
+                    <div style={{color: '#FFEA00'}}>
+                        <FontAwesomeIcon icon={SVG.faHeart} size="1x" className="mr-2" color="#FFEA00"
                             style={{ position: 'relative', top: '1px' }} ></FontAwesomeIcon>
                     By: Cary Joji Fukunaga
                     </div>
                 </div>
-                <button className="btn-buy-ticket">Buy Tickets
+                <button className="btn-buy-ticket" onClick={() => routeToMovie(banner.movieId, props)}>Buy Tickets
                     <FontAwesomeIcon icon={SVG.faArrowAltCircleRight} size="1x" className="mx-2"
                         style={{ position: 'relative', top: '1px' }} ></FontAwesomeIcon>
                 </button>
@@ -69,9 +71,9 @@ export function Banner(props) {
     );
 }
 
-// function routeToMovie(movieId, props) {
-//     props.history.push('/movie/' + movieId);
-// }
+function routeToMovie(movieId, props) {
+    props.push('/movie/' + movieId);
+}
 
 export default withRouter(Banner);
 

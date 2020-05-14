@@ -35,7 +35,7 @@ export class Main extends Component {
                 <div className="row">
                     <div className="card-group-title">
                         Now Playing
-                    <span onClick={() => this.routeToMovies('now_playing', this.props)}>Show All</span>
+                    <span onClick={() => this.routeToMovies({name:'Now Playing', value: 'now_playing'}, this.props)}>Show All</span>
                     </div>
                 </div>
                 <div className="row card-wrap ">
@@ -44,7 +44,7 @@ export class Main extends Component {
                 <div className="row">
                     <div className="card-group-title">
                         Popular
-                    <span onClick={() => this.routeToMovies('popular', this.props)}>Show All</span>
+                    <span onClick={() => this.routeToMovies({name:'Popular', value: 'popular'}, this.props)}>Show All</span>
                     </div>
                 </div>
                 <div className="row card-wrap ">
@@ -53,7 +53,7 @@ export class Main extends Component {
                 <div className="row">
                     <div className="card-group-title">
                         Top Rated
-                    <span onClick={() => this.routeToMovies('top_rated', this.props)}>Show All</span>
+                    <span onClick={() => this.routeToMovies({name: 'Top Rated', value: 'top_rated'}, this.props)}>Show All</span>
                     </div>
                 </div>
                 <div className="row card-wrap ">

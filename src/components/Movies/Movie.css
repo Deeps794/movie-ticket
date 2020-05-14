@@ -1,20 +1,73 @@
 .outer-wrap,
 .inner-wrap {
   display: flex;
+  flex: 1;
+  background: #21252970;
+  position: relative;
+  flex-flow: row nowrap;
+  border-radius: 0.2em;
+  cursor: pointer;
 }
 
 .img-wrap {
-  height: 320px;
-  width: 250px;
+  height: 40vh;
+  width: 30vh;
+  margin: 0em 1.5em;
+  border-radius: 0.2em;
+  position: relative;
+  bottom: 25px;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+  transition: all 0.2s ease-in;
+}
+
+.img-wrap:hover {
+  transform: scale(1.1);
+}
+
+.movie-title-wrap {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 1.2em;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.movie-title-wrap .card-rating {
+  color: #ffea00;
+  padding: 0 0.8em;
 }
 
 .content-wrap .card-body {
   align-items: baseline;
 }
 
+.card-text {
+  color: #656565;
+}
+
+.card-text span {
+  color: #a5a5a5;
+}
+
 @media only screen and (max-width: 768px) {
-    .card-body {
-        align-items: center !important;
-    }
-    
+  .content-wrap .btn-buy-ticket {
+    position: relative !important;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .img-wrap {
+    height: 22vh !important;
+    width: 15vh !important;
+    bottom: 15px !important;
+    margin: 0 .8em;
+  }
+
+  .movie-title-wrap {
+    font-size: 1em;
+  }
 }

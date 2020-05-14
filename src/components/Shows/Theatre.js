@@ -51,7 +51,7 @@ function getTheatresList(props) {
                         <p className="card-text mt-3">
                             {
                                 new Array(5).fill(0).map((rating, index) =>
-                                    <FontAwesomeIcon key={index} icon={SVG.faStar} color={theatre.rating > index ? '#ff304f' : '#5d5d5a'} size="1x"></FontAwesomeIcon>
+                                    <FontAwesomeIcon key={index} icon={SVG.faStar} color={theatre.rating > index ? '#FFEA00' : '#5d5d5a'} size="1x"></FontAwesomeIcon>
                                 )
                             }
                         </p>

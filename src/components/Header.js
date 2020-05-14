@@ -23,6 +23,7 @@ export class Header extends Component {
 
     componentDidMount() {
         window.addEventListener('scroll', this.handleScroll);
+        console.log(this.props.location.pathname.includes('movies'));
         switch (this.props.location.pathname != null) {
             case this.props.location.pathname.includes('movies'):
                 this.onActiveLink('movies');
@@ -37,6 +38,7 @@ export class Header extends Component {
                 this.onActiveLink('play');
                 break;
             default:
+                this.onActiveLink('');
         }
     }
 
@@ -45,16 +47,15 @@ export class Header extends Component {
             <nav className="navbar navbar-expand-lg fixed-top" 
                 style={{background: this.state.scrollTop > 0 ? '': 'transparent',
                 boxShadow: this.state.scrollTop > 0 ? '': 'none'}}>
-                <Link className="navbar-brand" to="/home">BO<span style={{ color: '#d72323', fontFamily: 'inherit' }}>X</span>OFFICE</Link>
+                <Link className="navbar-brand" to="/home" onClick={() => this.onActiveLink('')}>BO<span style={{ color: '#FFEA00', fontFamily: 'inherit' }}>X</span>OFFICE</Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
                     aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" style={{ zIndex: 11 }}>
                     <span className="navbar-toggler-icon" id="toggle">
-                        <FontAwesomeIcon icon={SVG.faFilm} color="#ff304f" size="2x" className="toggle-icon" ></FontAwesomeIcon>
                     </span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div className="navbar-nav">
-                        <Link className={'nav-item nav-link ' + (this.state.activeState === 'movie' ? 'active' : '')}
+                        <Link className={'nav-item nav-link ' + (this.state.activeState === 'movies' ? 'active' : '')}
                             to="/movies" onClick={() => this.onActiveLink('movies')}>Movies</Link>
                         <Link className={'nav-item nav-link ' + (this.state.activeState === 'events' ? 'active' : '')}
                             to="/events" onClick={() => this.onActiveLink('events')}>Events</Link>
@@ -65,7 +66,7 @@ export class Header extends Component {
                     </div>
                 </div>
                 <div className="position-absolute brand-image d-none d-md-block" style={{ right: '0', padding: '15px' }}>
-                    <FontAwesomeIcon icon={SVG.faFilm} color="#ff304f" size="3x" ></FontAwesomeIcon>
+                    <FontAwesomeIcon icon={SVG.faFilm} color="#FFEA00" size="3x" ></FontAwesomeIcon>
                 </div>
             </nav>
         );

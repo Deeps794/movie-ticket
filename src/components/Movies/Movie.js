@@ -7,15 +7,14 @@ import React, { useEffect, useState } from 'react';
 import { IMAGE } from '../../Axios/ImageApi';
 import { getData } from '../../Services/bo.http.service';
 
-
-
 function Movies(props) {
 
     const [movies, setMovies] = useState([]);
 
     useEffect(() => {
-        const movieState = props.location.state ? props.location.state : 'now_playing';
+        const movieState = props.location.state ? props.location.state.value : 'now_playing';
         getData('movie/' + movieState).then(response => {
+            console.log(response);
             setMovies(response.data.results);
         });
     }, [props.location.state]);
@@ -23,30 +22,39 @@ function Movies(props) {
     return (
         <div className="row" style={{ paddingTop: '74px' }}>
             <div className="col">
-                <span className="card-group-title">Now Playing</span>
-                {getTheatresList(movies)}
+                <div className="card-group-title">
+                    {props.location.state ? props.location.state.name : 'Now Playing'}
+                </div>
+                <div className="d-flex" style={{ flexFlow: 'row wrap' }}>
+                    {getMovies(movies, props)}
+                </div>
             </div>
         </div>
     );
 }
 
-function getTheatresList(movies) {
+function routeToMovie(movieId, props) {
+    props.history.push('movie/' + movieId);
+}
+
+function getMovies(movies, props) {
     return movies.map(movie =>
-        <div className="outer-wrap p-4" key={movie.id}>
-            <img src={IMAGE.BASE_URL + IMAGE.POSTER_SIZE + movie.poster_path} className="img-wrap" alt="..." />
-            <div className="content-wrap px-4">
-                <div className="card-body py-2 px-0">
-                    <h3 className="card-title">{movie.title}</h3>
-                    <p className="card-text">{movie.overview}</p>
-                    <span className="card-text">
-                        {
-                            new Array(5).fill(0).map((rating, index) =>
-                                <FontAwesomeIcon key={index} icon={SVG.faStar}
-                                    color={Math.floor(movie.vote_average / 2) > index ? '#ff304f' : '#5d5d5a'} size="1x">
-                                </FontAwesomeIcon>
-                            )
-                        }
-                    </span>
+        <div className="outer-wrap mx-2 my-4" key={movie.id} onClick={() => routeToMovie(movie.id, props)}>
+            <div className="position-relative">
+                <img src={IMAGE.BASE_URL + IMAGE.POSTER_SIZE + movie.poster_path} className="img-wrap" alt="..." />
+            </div>
+
+            <div className="content-wrap position-relative" style={{ flex: '1' }}>
+                <div className="card-body px-0 py-2">
+                    <div className="movie-title-wrap">
+                        <span className="card-title">{movie.title}</span>
+                        <span className="card-rating">{movie.vote_average}</span>
+                    </div>
+                    <div className="card-text">Popularity: <span>{movie.popularity}</span></div>
+                    <div className="card-text">Hits: <span>{movie.vote_count}</span></div>
+                    <div className="card-text" style={{ textTransform: 'capitalize' }}>
+                        Language: <span>{movie.original_language}</span>
+                    </div>
                 </div>
             </div>
         </div>

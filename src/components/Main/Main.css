@@ -3,6 +3,7 @@
   padding: 0px 15px;
   margin: 0.5em 0.5em 0.2em 0.5em;
   color: #656565;
+  margin: 0.5em 0;
 }
 
 .card-group-title span {
@@ -11,12 +12,12 @@
   padding: 1em 2em;
   font-size: 0.5em;
   text-transform: uppercase;
-  color: #ff304f;
+  color: #ffea00;
   transition: all 0.2s ease-in-out;
   right: 2em;
 }
 
 .card-group-title span:hover {
-  background: #ff304f;
+  background: #ffea00;
   color: whitesmoke;
 }
