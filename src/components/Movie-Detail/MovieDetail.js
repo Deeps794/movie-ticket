@@ -71,7 +71,7 @@ export class MovieDetail extends Component {
                                         <div className="dropdown-menu w-100 my-2">
                                             <span className="dropdown-item">Kings Theatre</span>
                                             <span className="dropdown-item">RadioCity Music Hall</span>
-                                            <span className="dropdown-item">Fox Threatre</span>
+                                            <span className="dropdown-item active">Fox Threatre</span>
                                             <span className="dropdown-item">Orchestra Hall</span>
                                             <span className="dropdown-item">Kauffman Centre</span>
                                         </div>
@@ -133,7 +133,7 @@ export class MovieDetail extends Component {
                                     </button>
                                         <div className="dropdown-menu w-100 my-2">
                                             <span className="dropdown-item">Kings Theatre</span>
-                                            <span className="dropdown-item">RadioCity Music Hall</span>
+                                            <span className="dropdown-item active">RadioCity Music Hall</span>
                                             <span className="dropdown-item">Fox Threatre</span>
                                             <span className="dropdown-item">Orchestra Hall</span>
                                             <span className="dropdown-item">Kauffman Centre</span>

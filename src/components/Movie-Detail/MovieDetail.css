@@ -54,9 +54,12 @@
 .card,
 .card-body,
 .card-img-top {
-  border-radius: 0;
   border: 0;
   color: antiquewhite;
+}
+
+.card-body {
+  border-radius: .25rem;
 }
 
 .booked-seat {
@@ -80,6 +83,24 @@
   justify-content: center;
 }
 
+.dropdown-menu {
+  background: black;
+}
+
+.dropdown-menu .active {
+  background: #ffea00;
+  color: #212529;
+}
+
+.dropdown-item {
+  color: #a0a0a0;
+}
+
+.dropdown-menu .dropdown-item:hover {
+  background: #212529;
+  color: #a0a0a0;
+}
+
 .bo-dropdown .dropdown button {
   min-width: 250px;
   border-radius: 0;
@@ -99,7 +120,7 @@
 
 .bo-time-chooser,
 .bo-date-chooser,
-.bo-dropdown  {
+.bo-dropdown {
   color: #a0a0a0;
 }
 

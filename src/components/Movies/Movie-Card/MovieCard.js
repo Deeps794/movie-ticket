@@ -11,7 +11,7 @@ export class MovieCard extends Component {
 
     render() {
         return (
-            <div className="card">
+            <div className="card mx-2" style={{minWidth: '250px'}}>
                 <img className="card-img-top" src={IMAGE.BASE_URL + IMAGE.POSTER_SIZE + this.props.movie.poster_path} alt="Card cap" />
                 <div className="card-body p-0 movie-card" style={{color: 'black'}}>
                     <span className="card-title m-2 font-weight-bold">{this.props.movie.title}</span>

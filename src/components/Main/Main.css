@@ -21,3 +21,31 @@
   background: #ffea00;
   color: whitesmoke;
 }
+
+.scroll-section {
+  display: flex;
+  overflow: auto;
+}
+.scroll-section::-webkit-scrollbar {
+  display: none;
+}
+
+.movie-section {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  position: relative;
+}
+
+.left-arrow,
+.right-arrow {
+  z-index: 1;
+}
+
+.left-arrow {
+  left: 0;
+}
+
+.right-arrow {
+  right: 0;
+}

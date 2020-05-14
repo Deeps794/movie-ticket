@@ -1,5 +1,7 @@
 import './Main.css';
 
+import * as SVG from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Component } from 'react';
 import { withRouter } from 'react-router-dom';
@@ -18,8 +20,6 @@ export class Main extends Component {
             popularMovies: [],
             topRatedMovies: []
         };
-
-        // this.routeToMovies = this.routeToMovies.bind(this);
     }
 
     componentDidMount() {
@@ -35,29 +35,59 @@ export class Main extends Component {
                 <div className="row">
                     <div className="card-group-title">
                         Now Playing
-                    <span onClick={() => this.routeToMovies({name:'Now Playing', value: 'now_playing'}, this.props)}>Show All</span>
+                    <span onClick={() => this.routeToMovies({ name: 'Now Playing', value: 'now_playing' }, this.props)}>Show All</span>
                     </div>
                 </div>
                 <div className="row card-wrap ">
-                    {this.getMovieCards(this.state.playingMovies)}
+                    <div className="col">
+                        <div className="movie-section">
+                            <FontAwesomeIcon className="left-arrow position-absolute h-100"
+                                icon={SVG.faArrowLeft} size="2x" color="white" />
+                            <FontAwesomeIcon className="right-arrow position-absolute h-100"
+                                icon={SVG.faArrowRight} size="2x" color="white" />
+                            <div className="scroll-section">
+                                {this.getMovieCards(this.state.playingMovies)}
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div className="row">
                     <div className="card-group-title">
                         Popular
-                    <span onClick={() => this.routeToMovies({name:'Popular', value: 'popular'}, this.props)}>Show All</span>
+                    <span onClick={() => this.routeToMovies({ name: 'Popular', value: 'popular' }, this.props)}>Show All</span>
                     </div>
                 </div>
                 <div className="row card-wrap ">
-                    {this.getMovieCards(this.state.popularMovies)}
+                    <div className="col">
+                        <div className="movie-section">
+                            <FontAwesomeIcon className="left-arrow position-absolute h-100"
+                                icon={SVG.faArrowLeft} size="2x" color="white" />
+                            <FontAwesomeIcon className="right-arrow position-absolute h-100"
+                                icon={SVG.faArrowRight} size="2x" color="white" />
+                            <div className="scroll-section">
+                                {this.getMovieCards(this.state.popularMovies)}
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div className="row">
                     <div className="card-group-title">
                         Top Rated
-                    <span onClick={() => this.routeToMovies({name: 'Top Rated', value: 'top_rated'}, this.props)}>Show All</span>
+                    <span onClick={() => this.routeToMovies({ name: 'Top Rated', value: 'top_rated' }, this.props)}>Show All</span>
                     </div>
                 </div>
                 <div className="row card-wrap ">
-                    {this.getMovieCards(this.state.topRatedMovies)}
+                    <div className="col">
+                        <div className="movie-section">
+                            <FontAwesomeIcon className="left-arrow position-absolute h-100"
+                                icon={SVG.faArrowLeft} size="2x" color="white" />
+                            <FontAwesomeIcon className="right-arrow position-absolute h-100"
+                                icon={SVG.faArrowRight} size="2x" color="white" />
+                            <div className="scroll-section">
+                                {this.getMovieCards(this.state.topRatedMovies)}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </React.Fragment>
         );
@@ -83,13 +113,7 @@ export class Main extends Component {
 
     getMovieCards(movies) {
         return movies.map((movie, i) => (
-            <div
-                className="col-xl-3 col-lg-4 col-md-4 col-sm-12 col-12"
-                key={i}
-                onClick={() => this.routeToMovie(movie, this.props)}
-            >
-                <MovieCard movie={movie} key={movie.id} />
-            </div>
+            <MovieCard movie={movie} key={movie.id} onClick={() => this.routeToMovie(movie, this.props)} />
         ));
     }
 
