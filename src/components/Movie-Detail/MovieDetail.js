@@ -11,16 +11,20 @@ import Seats from "./Seats/Seats";
 
 export class MovieDetail extends Component {
     maxTicketCount = 5;
+    cities = ['Chennai', 'Bangalore', 'Mumbai', 'Coimbatore', 'Delhi', 'Hyderabad'];
+    theatres = ['PVR Cinemas', 'INOX LaserPlex', 'Ariesplex SL Cinemas', 'Mayaajal Multiplex'];
     constructor(props) {
         super(props);
         this.state = {
             movie: {},
             poster_path: '',
+            bookTicket: { city: '', theatre: '', bookedSeats: '' },
             bookSeats: [],
-            bookTicketCount: 0
+            bookTicketCount: 0,
         };
 
         this.toggleBookedStatus = this.toggleBookedStatus.bind(this);
+        this.routeToPayment = this.routeToPayment.bind(this);
     }
 
     componentDidMount() {
@@ -66,14 +70,10 @@ export class MovieDetail extends Component {
                                             aria-haspopup="true"
                                             aria-expanded="false"
                                         >
-                                            chennai
+                                           {this.state.bookTicket.city === '' ? 'select city' : this.state.bookTicket.city}
                                     </button>
                                         <div className="dropdown-menu w-100 my-2">
-                                            <span className="dropdown-item">Kings Theatre</span>
-                                            <span className="dropdown-item">RadioCity Music Hall</span>
-                                            <span className="dropdown-item active">Fox Threatre</span>
-                                            <span className="dropdown-item">Orchestra Hall</span>
-                                            <span className="dropdown-item">Kauffman Centre</span>
+                                            {this.getCities(this.cities)}
                                         </div>
                                     </div>
                                 </div>
@@ -83,7 +83,7 @@ export class MovieDetail extends Component {
                                         <div className="date-item p-2">
                                             <span>Today</span>
                                             <div className="position-relative">
-                                                <span>13</span>
+                                                <span className="active">13</span>
                                                 <FontAwesomeIcon icon={SVG.faCircle} size="3x" color="#FFEA00" />
                                             </div>
                                         </div>
@@ -129,14 +129,10 @@ export class MovieDetail extends Component {
                                             aria-haspopup="true"
                                             aria-expanded="false"
                                         >
-                                            LUX cinemas
+                                        {this.state.bookTicket.theatre === '' ? 'select theatre' : this.state.bookTicket.theatre}
                                     </button>
                                         <div className="dropdown-menu w-100 my-2">
-                                            <span className="dropdown-item">Kings Theatre</span>
-                                            <span className="dropdown-item active">RadioCity Music Hall</span>
-                                            <span className="dropdown-item">Fox Threatre</span>
-                                            <span className="dropdown-item">Orchestra Hall</span>
-                                            <span className="dropdown-item">Kauffman Centre</span>
+                                            {this.getTheatres(this.theatres)}
                                         </div>
                                     </div>
                                 </div>
@@ -170,7 +166,7 @@ export class MovieDetail extends Component {
                             <div className="screen">SCREEN</div>
                             <Seats bookSeats={this.state.bookSeats} ontoggleBook={this.toggleBookedStatus} />
                             <div className="d-flex m-3">
-                                <button className="btn-proceed">Proceed
+                                <button className="btn-proceed" onClick={() => this.routeToPayment()}>Proceed
                                         <FontAwesomeIcon icon={SVG.faArrowAltCircleRight} size="1x" className="mx-2"
                                         style={{ position: 'relative', top: '1px' }} ></FontAwesomeIcon>
                                 </button>
@@ -227,6 +223,38 @@ export class MovieDetail extends Component {
                 poster_path: IMAGE.BASE_URL + IMAGE.POSTER_SIZE + poster_path,
             });
         }
+    }
+
+    getCities(cities) {
+        return cities.map((city, index) =>
+            <span className={'dropdown-item ' + (this.state.bookTicket.city === city ? 'active' : '')}
+                key={index} onClick={() => this.setCity(city)}>{city}</span>
+        );
+    }
+
+    setCity(city) {
+        const bookTicket = this.state.bookTicket;
+        bookTicket.city = city;
+        this.setState({
+            bookTicket: bookTicket
+        });
+    }
+
+    setTheatre(theatre) {
+        const bookTicket = this.state.bookTicket;
+        bookTicket.theatre = theatre;
+        this.setState({
+            bookTicket: bookTicket
+        });
+    }
+
+
+
+    getTheatres(theatres) {
+        return theatres.map((theatre, index) =>
+            <span className={'dropdown-item ' + (this.state.bookTicket.theatre === theatre ? 'active' : '')}
+                key={index} onClick={() => this.setTheatre(theatre)}>{theatre}</span>
+        );
     }
 
     routeToPayment() {

@@ -40,6 +40,12 @@
 .left-arrow,
 .right-arrow {
   z-index: 1;
+  transition: all 0.2s ease-in;
+}
+
+.left-arrow:hover,
+.right-arrow:hover {
+  transform: scale(1.5);
 }
 
 .left-arrow {

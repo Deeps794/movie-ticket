@@ -113,7 +113,10 @@ export class Main extends Component {
 
     getMovieCards(movies) {
         return movies.map((movie, i) => (
-            <MovieCard movie={movie} key={movie.id} onClick={() => this.routeToMovie(movie, this.props)} />
+            <div key={movie.id} onClick={() => this.routeToMovie(movie, this.props)}>
+                <MovieCard movie={movie} />
+            </div>
+
         ));
     }
 

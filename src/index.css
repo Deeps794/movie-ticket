@@ -65,7 +65,10 @@ code {
   flex-flow: column;
   padding: 1em;
   font-size: 0.8em;
-  width: 60%;
+}
+
+.movie-add-ons span {
+  padding: 0 0.5em;
 }
 
 .add-on-item {
@@ -135,18 +138,33 @@ code {
     text-align: center;
   }
 
+  .navbar-nav {
+    position: fixed;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: -15px;
+    background: #000000f2;
+    font-size: 2em;
+    z-index: 1;
+  }
 }
 
-@media only screen and (max-width: 576px) { 
+@media only screen and (max-width: 576px) {
   .bo-movie-title {
     justify-content: center;
   }
   .btn-proceed {
-    padding: 0 .7em !important;
+    padding: 0 0.7em !important;
   }
 
   .banner-card p {
     max-height: 100px;
     overflow: scroll;
+  }
+
+  .banner-card p::-webkit-scrollbar {
+    display: none;
   }
 }

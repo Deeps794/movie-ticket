@@ -1,7 +1,5 @@
 import './Movie.css';
 
-import * as SVG from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 
 import { IMAGE } from '../../Axios/ImageApi';

@@ -87,7 +87,7 @@
   background: black;
 }
 
-.dropdown-menu .active {
+.dropdown-menu .active, .position-relative .active {
   background: #ffea00;
   color: #212529;
 }
@@ -152,7 +152,6 @@
   top: 10px;
   text-align: center;
   width: 100%;
-  color: lightgray;
 }
 
 .bo-movie-poster {

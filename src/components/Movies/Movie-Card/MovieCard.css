@@ -3,4 +3,5 @@
 
 .card-img-top {
     height: 50vh;
+    border-radius: .2em;
 }
