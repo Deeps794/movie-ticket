@@ -5,8 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 
-import { IMAGE } from "../../Axios/ImageApi";
-import { getData } from "../../Services/bo.http.service";
+import { IMAGE } from "../../axios/ImageApi";
+import { getData } from "../../services/bo.http.service";
 import Seats from "./Seats/Seats";
 
 export class MovieDetail extends Component {
@@ -20,7 +20,7 @@ export class MovieDetail extends Component {
             poster_path: '',
             bookTicket: { city: '', theatre: '', bookedSeats: '' },
             bookSeats: [],
-            bookTicketCount: 0,
+            bookTicketCount: 1,
         };
 
         this.toggleBookedStatus = this.toggleBookedStatus.bind(this);
@@ -70,8 +70,8 @@ export class MovieDetail extends Component {
                                             aria-haspopup="true"
                                             aria-expanded="false"
                                         >
-                                           {this.state.bookTicket.city === '' ? 'select city' : this.state.bookTicket.city}
-                                    </button>
+                                            {this.state.bookTicket.city === '' ? 'select city' : this.state.bookTicket.city}
+                                        </button>
                                         <div className="dropdown-menu w-100 my-2">
                                             {this.getCities(this.cities)}
                                         </div>
@@ -129,8 +129,8 @@ export class MovieDetail extends Component {
                                             aria-haspopup="true"
                                             aria-expanded="false"
                                         >
-                                        {this.state.bookTicket.theatre === '' ? 'select theatre' : this.state.bookTicket.theatre}
-                                    </button>
+                                            {this.state.bookTicket.theatre === '' ? 'select theatre' : this.state.bookTicket.theatre}
+                                        </button>
                                         <div className="dropdown-menu w-100 my-2">
                                             {this.getTheatres(this.theatres)}
                                         </div>
@@ -159,9 +159,11 @@ export class MovieDetail extends Component {
                     <div className="col">
                         <div className="bo-seat-layout">
                             <div className="m-4">PICK YOUR SEAT
-                                <FontAwesomeIcon icon={SVG.faMinus} className="mx-4" size="1x" color="whitesmoke" />
-                                <span className="ticket-count">2</span>
-                                <FontAwesomeIcon icon={SVG.faPlus} className="mx-4" size="1x" color="whitesmoke" />
+                                <FontAwesomeIcon icon={SVG.faMinus} className="mx-4" size="1x" color="whitesmoke" onClick={() => this.state.bookTicketCount > 1 ?
+                                    this.setState({ bookTicketCount: this.state.bookTicketCount - 1, bookSeats: [] }) : this.state.bookTicketCount} />
+                                <span className="ticket-count">{this.state.bookTicketCount}</span>
+                                <FontAwesomeIcon icon={SVG.faPlus} className="mx-4" size="1x" color="whitesmoke" onClick={() => this.state.bookTicketCount < 5 ?
+                                    this.setState({ bookTicketCount: this.state.bookTicketCount + 1, bookSeats: [] }) : this.state.bookTicketCount} />
                             </div>
                             <div className="screen">SCREEN</div>
                             <Seats bookSeats={this.state.bookSeats} ontoggleBook={this.toggleBookedStatus} />
@@ -174,7 +176,7 @@ export class MovieDetail extends Component {
                                     <span style={{ fontSize: '9px', fontWeight: 'bold' }}>Total</span>
                                     <span style={{ fontSize: '1.4em' }}>
                                         <span style={{ fontSize: '.5em', verticalAlign: 'text-top', padding: '.1em' }}>$</span>
-                                        25.32
+                                        {(this.state.bookTicketCount * 25.32).toFixed(2)}
                                     </span>
                                 </div>
                             </div>
@@ -187,24 +189,28 @@ export class MovieDetail extends Component {
     }
 
     toggleBookedStatus(seatNumber) {
-        const bookSeats = this.state.bookSeats.includes(seatNumber) ?
-            this.removeSeatFromBookedTickets(seatNumber) : this.addSeatToBookedTickets(seatNumber);
-        this.setState({
-            bookSeats: bookSeats
-        });
+            const bookSeats = this.state.bookSeats.includes(seatNumber) ?
+                this.removeSeatFromBookedTickets(seatNumber) : this.addSeatToBookedTickets(seatNumber);
+            this.setState({
+                bookSeats: bookSeats
+            });
     }
 
     addSeatToBookedTickets(seatNumber) {
         const bookSeats = this.state.bookSeats;
-        bookSeats.push(seatNumber);
+        if (this.state.bookSeats.length < this.state.bookTicketCount) {
+            bookSeats.push(seatNumber);
+        }
         return bookSeats;
     }
 
     removeSeatFromBookedTickets(seatNumber) {
         const bookSeats = this.state.bookSeats;
-        const index = bookSeats.findIndex(existingSeat => existingSeat === seatNumber);
-        if (index > -1) {
-            bookSeats.splice(index, 1);
+        if (this.state.bookSeats.length > 0) {
+            const index = bookSeats.findIndex(existingSeat => existingSeat === seatNumber);
+            if (index > -1) {
+                bookSeats.splice(index, 1);
+            }
         }
         return bookSeats;
     }

@@ -2,8 +2,8 @@ import './Movie.css';
 
 import React, { useEffect, useState } from 'react';
 
-import { IMAGE } from '../../Axios/ImageApi';
-import { getData } from '../../Services/bo.http.service';
+import { IMAGE } from '../../axios/ImageApi';
+import { getData } from '../../services/bo.http.service';
 
 function Movies(props) {
 

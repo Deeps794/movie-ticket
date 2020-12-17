@@ -1,4 +1,4 @@
-import API from '../Axios/Api'
+import API from '../axios/Api'
 
 export const API_KEY = 'd9c955e307b9020a5d9af1d049f8a191'
 

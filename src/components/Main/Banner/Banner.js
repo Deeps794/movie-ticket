@@ -3,8 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
 
-import { getData } from '../../../Services/bo.http.service';
-import { IMAGE } from '../../../Axios/ImageApi';
+import { getData } from '../../../services/bo.http.service';
+import { IMAGE } from '../../../axios/ImageApi';
 
 export function Banner(props) {
 

@@ -5,13 +5,13 @@ import * as SVG from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Component } from 'react';
 
-import { IMAGE } from '../../../Axios/ImageApi';
+import { IMAGE } from '../../../axios/ImageApi';
 
 export class MovieCard extends Component {
 
     render() {
         return (
-            <div className="card mx-2" style={{ minWidth: '250px' }}>
+            <div className="card mx-2" style={{ minWidth: '310px' }}>
                 <div className="position-relative">
                     <img className="card-img-top" src={IMAGE.BASE_URL + IMAGE.POSTER_SIZE + this.props.movie.poster_path} alt="Card cap" />
                     <div className="card-body p-0 movie-card" style={{ color: 'black' }}>

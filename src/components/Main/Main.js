@@ -6,7 +6,7 @@ import React from 'react';
 import { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
-import { getData } from '../../Services/bo.http.service';
+import { getData } from '../../services/bo.http.service';
 import MovieCard from '../Movies/Movie-Card/MovieCard';
 import { Banner } from './Banner/Banner';
 

@@ -1,13 +1,13 @@
 import React from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
 
-import Events from '../Components/Events/Events';
-import Main from '../Components/Main/Main';
-import MovieDetail from '../Components/Movie-Detail/MovieDetail';
-import Payment from '../Components/Payments/Payment';
-import Plays from '../Components/Plays/Plays';
-import Shows from '../Components/Shows/Shows';
-import Movies from '../Components/Movies/Movie';
+import Events from '../components/Events/Events';
+import Main from '../components/Main/Main';
+import MovieDetail from '../components/Movie-Detail/MovieDetail';
+import Payment from '../components/Payments/Payment';
+import Plays from '../components/Plays/Plays';
+import Shows from '../components/Shows/Shows';
+import Movies from '../components/Movies/Movie';
 
 class Router extends React.PureComponent {
 
