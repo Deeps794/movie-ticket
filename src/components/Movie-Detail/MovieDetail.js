@@ -14,7 +14,7 @@ export class MovieDetail extends Component {
     cities = ['Chennai', 'Bangalore', 'Mumbai', 'Coimbatore', 'Delhi', 'Hyderabad'];
     theatres = ['PVR Cinemas', 'INOX LaserPlex', 'Ariesplex SL Cinemas', 'Mayaajal Multiplex'];
     constructor(props) {
-        super(props);
+        super();
         this.state = {
             movie: {},
             poster_path: '',

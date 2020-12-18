@@ -47,7 +47,7 @@ export class Header extends Component {
             <nav className="navbar navbar-expand-lg fixed-top" 
                 style={{background: this.state.scrollTop > 0 ? '': 'transparent',
                 boxShadow: this.state.scrollTop > 0 ? '': 'none'}}>
-                <Link className="navbar-brand" to="/home" onClick={() => this.onActiveLink('')}>BO<span style={{ color: '#FFEA00', fontFamily: 'inherit' }}>X</span>OFFICE</Link>
+                <Link className="navbar-brand" to="/home" onClick={() => this.onActiveLink('')}>BO<span style={{ color: 'red', fontFamily: 'inherit' }}>X</span>OFFICE</Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
                     aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" style={{ zIndex: 11 }}>
                     <span className="navbar-toggler-icon" id="toggle">

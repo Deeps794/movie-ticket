@@ -1,18 +1,5 @@
 @import "./Variables.css";
 
-.banner-card {
-  padding: 2em;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.8) 0%,
-    transparent 100%
-  );
-  height: 100%;
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-}
-
 .card-img-banner {
   border-radius: 0.2em;
 }
@@ -115,12 +102,8 @@
   border: 0;
   background: #ffea00;
   transition: all 0.2s ease-in-out;
-}
-
-.btn-buy-ticket {
-  position: absolute;
-  right: 0;
-  bottom: 0;
+  display: flex;
+  align-self: start;
 }
 
 .btn-trailer {
@@ -141,7 +124,7 @@
   height: 100%;
   width: 100%;
   margin: -10px -15px;
-  background: black;
+  background: #090909;
 }
 
 .description {
@@ -150,7 +133,7 @@
 
 .btn-buy-ticket:hover,
 .btn-trailer:hover {
-  transform: scale(0.9);
+  font-size: large;
 }
 
 .disabled {
@@ -163,7 +146,7 @@
 
 a:hover,
 .nav-item:hover {
-  color: white;
+  color: #ffea00;
 }
 
 .carousel-item img {
@@ -178,32 +161,6 @@ a:hover,
   transition: all 3s ease;
   color: #ffea00;
   border-bottom: 2px solid;
-}
-
-.banner {
-  height: 550px;
-  width: 100%;
-  background-size: cover;
-  color: aliceblue;
-  position: relative;
-}
-
-.banner-title {
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-}
-
-.banner-title span:first-child {
-  text-transform: uppercase;
-  padding-right: 10px;
-  font-size: 2.5em;
-}
-
-.banner-movie-type {
-  padding: 0 10px;
-  margin: 0.5em;
-  border: 1px solid;
 }
 
 .movie-card {

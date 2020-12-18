@@ -34,7 +34,7 @@ export class Main extends Component {
                 <Banner />
                 <div className="row">
                     <div className="card-group-title">
-                        Now Playing
+                        Projecting Now
                     <span onClick={() => this.routeToMovies({ name: 'Now Playing', value: 'now_playing' }, this.props)}>Show All</span>
                     </div>
                 </div>

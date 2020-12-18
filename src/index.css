@@ -33,8 +33,7 @@ code {
 }
 
 .nav-item {
-  color: #586e72;
-  font-weight: bold;
+  color: white;
   transition: all 0.3s ease-in-out;
 }
 
