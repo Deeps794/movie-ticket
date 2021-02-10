@@ -5,3 +5,9 @@
     height: 50vh;
     border-radius: .2em;
 }
+
+.btn-bookTicket {
+    background: black;
+    color: white;
+    border-radius: 0;
+}

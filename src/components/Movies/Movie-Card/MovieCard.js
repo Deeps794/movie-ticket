@@ -1,4 +1,4 @@
-import '../../../App.css';
+import '../../../App.scss';
 import './MovieCard.css';
 
 import * as SVG from '@fortawesome/free-solid-svg-icons';
@@ -34,6 +34,10 @@ export class MovieCard extends Component {
                                 <span>{this.props.movie.release_date}</span>
                             </div>
                         </div>
+                        <button className="my-2 btn btn-bookTicket">Book Now
+                                    <FontAwesomeIcon icon={SVG.faArrowAltCircleRight} size="1x" className="mx-2"
+                                style={{ position: 'relative', top: '1px' }} ></FontAwesomeIcon>
+                        </button>
                     </div>
                 </div>
 

@@ -10,62 +10,54 @@ import { getData } from '../../../services/bo.http.service';
 
 export function Banner(props) {
 
-    const [banner, setBanner] = useState({
-        title: '',
-        overview: '',
-        bannerUrl: '',
-        movieId: ''
-    });
-
-    const [genres, setGenres] = useState([]);
-    const [runtime, setRuntime] = useState(0);
-    const [language, setLanguage] = useState('');
+    const [banner, setBanner] = useState([]);
 
     useEffect(() => {
-        getData('movie/upcoming').then(response => {
-            const movies = response.data.results;
-            const movieDetails = movies[Math.floor(Math.random() * movies.length)];
-            setBanner({
-                title: movieDetails.title,
-                overview: movieDetails.overview,
-                bannerUrl: 'url(' + IMAGE.BASE_URL + IMAGE.BACKDROP_SIZE + movieDetails.backdrop_path + ')',
-                movieId: movieDetails.id
+        const getBanner = () => {
+            getData('movie/upcoming').then(response => {
+                const movies = response.data.results;
+                return movies.map(movie => {
+                    const bannerItem = {
+                        title: movie.title,
+                        overview: movie.overview,
+                        bannerUrl: 'url(' + IMAGE.BASE_URL + IMAGE.BACKDROP_SIZE + movie.backdrop_path + ')',
+                        movieId: movie.id,
+                        genres: [],
+                        runTime: 0,
+                        language: ''
+                    }
+                    setBannerInfoDetails(bannerItem);
+                    return movie;
+                });
             });
-
-            getData('movie/' + movieDetails.id).then(response => {
-                setLanguage(response.data.original_language);
-                setRuntime(response.data.runtime);
-                setGenres(response.data.genres);
-            });
-        });
+        }
+        getBanner();
     }, []);
 
+    const setBannerInfoDetails = (bannerItem) => {
+        getData('movie/' + bannerItem.movieId).then(response => {
+            bannerItem = Object.assign(bannerItem, {
+                language: response.data.original_language,
+                runtime: response.data.runtime,
+                genres: response.data.genres
+            });
+            setBanner(banner => [...banner, bannerItem]);
+        });
+    }
 
     return (
         <div className="row">
-            <div className="banner" style={{ backgroundImage: banner.bannerUrl }}>
-                <div className="banner-card">
-                    <div>
-                        <span>{Math.floor(runtime / 60) + 'hr'} &nbsp; {(runtime % 60) + 'min'}</span>
-                        <div style={{
-                            display: 'inline-block',
-                            padding: '0px 10px 0px 30px',
-                            color: '#888787'
-                        }}>
-                            {
-                                genres.map((genre, index) =>
-                                    <span key={genre.id}>{genre.name} {index !== genres.length - 1 ? ',' : ''}</span>
-                                )
-                            }
-                        </div>
-                        <span className="banner-movie-type">{language.toUpperCase()}</span>
-                    </div>
-                    <div className="banner-title">{banner.title}
-                    </div>
-                    <button className="btn-buy-ticket" onClick={() => routeToMovie(banner.movieId, props)}>Buy Tickets
-                        <FontAwesomeIcon icon={SVG.faArrowAltCircleRight} size="1x" className="mx-2"
-                            style={{ position: 'relative', top: '1px' }} ></FontAwesomeIcon>
-                    </button>
+            <div id="carouselExampleControls" className="carousel slide w-100" data-ride="carousel">
+                <div className="carousel-inner">
+                    {getBanners(banner, props)}
+                </div>
+                <div className="control-wrapper">
+                    <a className="arrow" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <FontAwesomeIcon icon={SVG.faLongArrowAltLeft} size="1x" className="mx-2" color="white"></FontAwesomeIcon>
+                    </a>
+                    <a className="arrow" href="#carouselExampleControls" role="button" data-slide="next">
+                        <FontAwesomeIcon icon={SVG.faLongArrowAltRight} size="1x" className="mx-2" color="white"></FontAwesomeIcon>
+                    </a>
                 </div>
             </div>
         </div>
@@ -76,5 +68,34 @@ function routeToMovie(movieId, props) {
     props.push('/movie/' + movieId);
 }
 
+function getBanners(banners, props) {
+    return banners.map((banner, index) =>
+        <div className={'carousel-item ' + (index === 0 ? 'active' : '')} key={index}>
+            <div className="banner" style={{ backgroundImage: banner.bannerUrl }}>
+                <div className="banner-card">
+                    <div className="d-flex">
+                        <span className="font-weight-bold">{Math.floor(banner.runtime / 60) + 'hr'}  {(banner.runtime % 60) + 'min'}</span>
+                        <div className="px-2">
+                        {
+                            banner?.genres.map((genre, index) =>
+                                <span key={genre.id}>{genre.name} {index !== banner.genres.length - 1 ? ',' : ''}</span>
+                            )
+                        }
+                        </div>
+                        <span className="banner-movie-type">{banner?.language.toUpperCase()}</span>
+                    </div>
+                    <div className="banner-title">{banner.title}
+                    </div>
+                    <button className="btn-buy-ticket" onClick={() => routeToMovie(banner.movieId, props)}>Buy Tickets
+                                    <FontAwesomeIcon icon={SVG.faArrowAltCircleRight} size="1x" className="mx-2"
+                            style={{ position: 'relative', top: '1px' }} ></FontAwesomeIcon>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    );
+}
 export default withRouter(Banner);
+
 

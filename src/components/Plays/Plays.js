@@ -1,4 +1,4 @@
-import '../../App.css';
+import '../../App.scss';
 
 import * as SVG from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

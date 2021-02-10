@@ -1,7 +1,6 @@
 import './Payment.css';
 
 import React from 'react';
-import DatePicker from 'react-datepicker';
 
 class Payment extends React.Component {
 
@@ -157,8 +156,8 @@ class Payment extends React.Component {
 }
 
 
-function showAlert() {
-    alert('Tickets Booked Successfully....');
-}
+// function showAlert() {
+//     alert('Tickets Booked Successfully....');
+// }
 
 export default Payment;

@@ -1,4 +1,4 @@
-import '../../../App.css';
+import '../../../App.scss';
 import 'react-datepicker/dist/react-datepicker.css';
 
 import * as SVG from '@fortawesome/free-solid-svg-icons';

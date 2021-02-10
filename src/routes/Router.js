@@ -12,7 +12,7 @@ import Movies from '../components/Movies/Movie';
 class Router extends React.PureComponent {
 
 	constructor(props, context) {
-		super(props, context);
+		super(props);
 		this.state = {
 			prevDepth: getPathDepth(props.location)
 		};
