@@ -1,0 +1,27 @@
+@import "../../variables.scss";
+
+.movie-banner-img {
+  height: calc(100vh - 74px - 51px);
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.cast-outer-wrapper {
+  gap: 0.5rem;
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+  .cast-wrapper {
+    border-radius: 0.2rem;
+    height: 180px;
+    width: 120px;
+    flex-shrink: 0;
+  }
+}
+
+.movie-info-wrapper {
+    color: $white;
+    .movie-info-details {
+        font-size: 1.2rem;
+    }
+}

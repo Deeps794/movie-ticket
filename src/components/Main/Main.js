@@ -1,14 +1,12 @@
-import './Main.css';
-
 import * as SVG from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
-import { Component } from 'react';
-import { withRouter } from 'react-router-dom';
-
+import React, { Component } from 'react';
 import { getData } from '../../services/bo.http.service';
 import MovieCard from '../Movies/Movie-Card/MovieCard';
 import { Banner } from './Banner/Banner';
+import './Main.css';
+
+
 
 
 export class Main extends Component {
@@ -35,7 +33,7 @@ export class Main extends Component {
                 <div className="row">
                     <div className="card-group-title">
                         Projecting Now
-                    <span onClick={() => this.routeToMovies({ name: 'Now Playing', value: 'now_playing' }, this.props)}>Show All</span>
+                        <span onClick={() => this.routeToMovies({ name: 'Now Playing', value: 'now_playing' }, this.props)}>Show All</span>
                     </div>
                 </div>
                 <div className="row card-wrap ">
@@ -54,7 +52,7 @@ export class Main extends Component {
                 <div className="row">
                     <div className="card-group-title">
                         Popular
-                    <span onClick={() => this.routeToMovies({ name: 'Popular', value: 'popular' }, this.props)}>Show All</span>
+                        <span onClick={() => this.routeToMovies({ name: 'Popular', value: 'popular' }, this.props)}>Show All</span>
                     </div>
                 </div>
                 <div className="row card-wrap ">
@@ -73,7 +71,7 @@ export class Main extends Component {
                 <div className="row">
                     <div className="card-group-title">
                         Top Rated
-                    <span onClick={() => this.routeToMovies({ name: 'Top Rated', value: 'top_rated' }, this.props)}>Show All</span>
+                        <span onClick={() => this.routeToMovies({ name: 'Top Rated', value: 'top_rated' }, this.props)}>Show All</span>
                     </div>
                 </div>
                 <div className="row card-wrap ">
@@ -112,7 +110,7 @@ export class Main extends Component {
     }
 
     getMovieCards(movies) {
-        return movies.map((movie, i) => (
+        return movies.map((movie) => (
             <div key={movie.id} onClick={() => this.routeToMovie(movie, this.props)}>
                 <MovieCard movie={movie} />
             </div>
@@ -132,4 +130,4 @@ export class Main extends Component {
     }
 }
 
-export default withRouter(Main);
+export default Main;

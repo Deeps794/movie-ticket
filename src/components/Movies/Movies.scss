@@ -1,0 +1,63 @@
+@import "../../variables.scss";
+
+.movies-list {
+  gap: 1rem 0.5rem;
+}
+
+.movies-card {
+  display: flex;
+  flex: 1;
+  background: $black;
+  position: relative;
+  border-radius: 0.2em;
+  cursor: pointer;
+}
+
+.movie-card-img-wrapper {
+  flex-shrink: 0;
+}
+
+.img-wrap {
+  width: 150px;
+  border-radius: 0.2em;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
+.movie-title-wrap {
+  .movie-title {
+    color: $white;
+    font-size: 0.8rem;
+  }
+  .movie-rating {
+    color: $yellow;
+  }
+}
+
+.movie-details {
+  color: $white;
+  font-size: 0.7rem;
+  .overview {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    min-width: 80px;
+  }
+}
+
+.content-wrap {
+  flex-grow: 1;
+}
+
+@media only screen and (max-width: 768px) {
+  .content-wrap .btn-buy-ticket {
+    position: relative !important;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+}

@@ -1,4 +1,4 @@
-@import "./Variables.css";
+@import "./variables.scss";
 
 body {
   margin: 0;
@@ -19,9 +19,16 @@ code {
   outline: none;
 }
 
+a:hover {
+  color: $white !important;
+}
+
 .navbar-brand {
-  color: #586e72;
+  color: $white;
   font-size: 2em;
+  &:hover {
+    color: $white !important;
+  }
 }
 
 .card-body {
@@ -85,10 +92,8 @@ code {
   transform: translateY(-50%);
 }
 
-.navbar,
-.container-fluid {
-  background: black;
-  transition: all 0.8s ease-in-out;
+body {
+  background: $secondary-black;
 }
 
 .navbar {
@@ -136,18 +141,6 @@ code {
     justify-content: center;
     text-align: center;
   }
-
-  .navbar-nav {
-    position: fixed;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin: -15px;
-    background: #000000f2;
-    font-size: 2em;
-    z-index: 1;
-  }
 }
 
 @media only screen and (max-width: 576px) {
@@ -166,4 +159,9 @@ code {
   .banner-card p::-webkit-scrollbar {
     display: none;
   }
+}
+
+.bg-black {
+  background: $black;
+  background-color: $black !important;
 }

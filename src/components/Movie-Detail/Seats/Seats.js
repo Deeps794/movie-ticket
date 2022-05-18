@@ -1,9 +1,8 @@
-import '../../../App.scss';
-import 'react-datepicker/dist/react-datepicker.css';
-
 import * as SVG from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Component } from 'react';
+import '../../../App.scss';
+
 
 
 export class Seats extends Component {

@@ -1,11 +1,11 @@
-import '../../../App.scss';
-import './MovieCard.css';
-
 import * as SVG from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Component } from 'react';
-
+import '../../../App.scss';
 import { IMAGE } from '../../../axios/ImageApi';
+import './MovieCard.css';
+
+
 
 export class MovieCard extends Component {
 
@@ -35,7 +35,7 @@ export class MovieCard extends Component {
                             </div>
                         </div>
                         <button className="my-2 btn btn-bookTicket">Book Now
-                                    <FontAwesomeIcon icon={SVG.faArrowAltCircleRight} size="1x" className="mx-2"
+                            <FontAwesomeIcon icon={SVG.faArrowAltCircleRight} size="1x" className="mx-2"
                                 style={{ position: 'relative', top: '1px' }} ></FontAwesomeIcon>
                         </button>
                     </div>
