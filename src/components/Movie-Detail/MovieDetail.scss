@@ -4,24 +4,105 @@
   height: calc(100vh - 74px - 51px);
   object-fit: cover;
   object-position: 50% 50%;
+  border-radius: 0.2rem;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
 }
 
 .cast-outer-wrapper {
   gap: 0.5rem;
+  overflow-y: hidden;
+  overflow-x: auto;
   &::-webkit-scrollbar {
     width: 0;
   }
   .cast-wrapper {
-    border-radius: 0.2rem;
-    height: 180px;
-    width: 120px;
+    max-width: 120px;
+    .img-wrapper {
+      height: 180px;
+      width: 120px;
+      img {
+        border-radius: 0.2rem;
+        box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+          0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+          0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+          0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
+      }
+    }
+
     flex-shrink: 0;
   }
 }
 
 .movie-info-wrapper {
-    color: $white;
-    .movie-info-details {
-        font-size: 1.2rem;
+  color: $white;
+  .movie-info-details {
+    font-size: 1.2rem;
+    color: $grey;
+  }
+}
+
+#movie-tab,
+#pills-tabContent {
+  color: $white;
+  .nav-link {
+    color: $grey;
+    background: none;
+    &.active {
+      color: $white;
+      border-bottom: 2px solid $yellow;
+      border-radius: unset;
     }
+  }
+}
+
+.related-movies-wrapper {
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.related-movie-name {
+  bottom: 0;
+  left: 0;
+  font-weight: 800;
+  font-size: .8rem;
+  color: $white;
+  background: linear-gradient(
+    to top,
+    rgba(20, 20, 20, 1.8) 5%,
+    transparent 100%
+  );
+}
+
+.movie-cover-img-wrap {
+  height: 150px;
+  flex-shrink: 0;
+  img {
+    border-radius: 0.2rem;
+    box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+      0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+      0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+      0 100px 80px rgba(0, 0, 0, 0.12);
+  }
+}
+
+.video-wrapper {
+  flex-flow: nowrap;
+  overflow-x: auto;
+  gap: 0.5rem;
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+  iframe {
+    border-radius: 0.3rem;
+  }
+}
+
+/** Media Query **/
+@media only screen and (max-width: 576px) {
+  .movie-info-details {
+    font-size: 0.9rem !important;
+  }
 }

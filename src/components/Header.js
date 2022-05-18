@@ -1,4 +1,5 @@
 import * as SVG from '@fortawesome/free-solid-svg-icons';
+import { Collapse } from 'bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Component } from 'react';
 import { Link, NavLink } from 'react-router-dom';
@@ -30,6 +31,11 @@ export class Header extends Component {
         window.removeEventListener('scroll', this.handleScroll);
     }
 
+    collapseHeader() {
+        const element = document.getElementById('navbarNavAltMarkup');
+        new Collapse(element).hide();
+    }
+
     render() {
         return (
             <nav className="navbar navbar-expand-lg fixed-top bg-black" id="header">
@@ -40,10 +46,10 @@ export class Header extends Component {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div className="navbar-nav mb-2">
-                        <NavLink className='nav-item nav-link' to="/movies">Movies</NavLink>
-                        <NavLink className='nav-item nav-link' to="/events">Events</NavLink>
-                        <NavLink className='nav-item nav-link' to="/shows">Popular Shows</NavLink>
-                        <NavLink className='nav-item nav-link' to="/play">Plays</NavLink>
+                        <NavLink className='nav-item nav-link' to="/movies" onClick={() => this.collapseHeader()}>Movies</NavLink>
+                        <NavLink className='nav-item nav-link' to="/events" onClick={() => this.collapseHeader()}>Events</NavLink>
+                        <NavLink className='nav-item nav-link' to="/shows" onClick={() => this.collapseHeader()}>Popular Shows</NavLink>
+                        <NavLink className='nav-item nav-link' to="/play" onClick={() => this.collapseHeader()}>Plays</NavLink>
                     </div>
                 </div>
             </nav>
